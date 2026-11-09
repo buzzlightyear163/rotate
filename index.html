@@ -1,0 +1,1357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="ROTATE counts which words and themes are speeding up in new pump.fun launches right now and buys the leader of the newest one. Live board, no keys.">
+<meta name="theme-color" content="#f1f0ec">
+<meta property="og:title" content="ROTATE · Buys the next meta, not the last one.">
+<meta property="og:description" content="A live board of which themes are speeding up in new pump.fun launches. Trending shows what ran. ROTATE shows what's next.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ROTATE · Buys the next meta, not the last one.">
+<meta name="twitter:image" content="/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22200 240 640 640%22 width=%2264%22 height=%2264%22%3E%3Crect x=%22-500%22 y=%22-500%22 width=%222000%22 height=%222000%22 fill=%22%23ffffff%22/%3E%3Crect x=%22250%22 y=%22372%22 width=%22500%22 height=%22418%22 rx=%2266%22 fill=%22%232443ff%22/%3E%3Cpath d=%22M562.6 367.5A118 118 0 0 1 742.0 302.2%22 fill=%22none%22 stroke=%22%232443ff%22 stroke-width=%2258%22/%3E%3Cpath d=%22M774.4 254.1L806.6 345.8L709.6 350.3Z%22 fill=%22%232443ff%22 stroke=%22%232443ff%22 stroke-width=%2210%22 stroke-linejoin=%22round%22/%3E%3Cline x1=%22462%22 y1=%22490%22 x2=%22462%22 y2=%22556%22 stroke=%22%23ffffff%22 stroke-width=%2230%22 stroke-linecap=%22round%22/%3E%3Cline x1=%22566%22 y1=%22490%22 x2=%22566%22 y2=%22556%22 stroke=%22%23ffffff%22 stroke-width=%2230%22 stroke-linecap=%22round%22/%3E%3Cpath d=%22M414 628 Q500 702 586 628%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-width=%2230%22 stroke-linecap=%22round%22/%3E%3C/svg%3E">
+<title>ROTATE · Buys the next meta, not the last one.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@500..900&family=Albert+Sans:wght@400..600&family=Red+Hat+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the word is the visual. A Swiss poster on paper: one giant live word that flips when the meta rotates,
+   a ticker of live launch words, a rank chart for the story and a typographic board. No 3D, no cards, one signal colour. */
+:root{
+  --paper:#f1f0ec;
+  --paper-2:#e7e6e0;
+  --ink:#0b0b0c;
+  --ink-2:#56565b;
+  --ink-3:#8d8d92;
+  --rule:rgba(11,11,12,.13);
+  --rule-2:rgba(11,11,12,.3);
+  --sig:#2443ff;
+  --cond:"Sofia Sans Extra Condensed","DejaVu Sans Condensed","Arial Narrow",sans-serif;
+  --sans:"Albert Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"Red Hat Mono",ui-monospace,Menlo,Consolas,monospace;
+  --g:clamp(16px,3.2vw,48px);
+  --max:1440px;
+  --fs:220px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--sig);color:#fff}
+:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--g);position:relative}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.cols{position:fixed;inset:0;z-index:0;pointer-events:none;display:flex;justify-content:center}
+.cols i{display:block;width:100%;max-width:calc(var(--max) - 2 * var(--g));margin-inline:var(--g);border-right:1px solid rgba(11,11,12,.045);background:linear-gradient(90deg,rgba(11,11,12,.045) 1px,transparent 1px) 0 0/calc(100%/12) 100%}
+main,footer,header{position:relative;z-index:1}
+
+/* tag: section marker */
+.tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.tag::before{content:"";width:9px;height:9px;background:var(--sig)}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em}
+h2{font-size:clamp(38px,5.2vw,88px);line-height:.95;text-wrap:balance}
+
+/* lamp */
+.lamp{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.lamp i{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--ink-3);flex:none}
+.lamp.live{color:var(--ink)}
+.lamp.live i{background:var(--sig);border-color:var(--sig);animation:blink 1.6s steps(1) infinite}
+@keyframes blink{50%{opacity:.25}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:15px 20px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:var(--sig);border-color:var(--sig);color:#fff}
+.btn.sig{background:var(--sig);border-color:var(--sig);color:#fff}
+.btn.sig:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn.sm{padding:10px 14px;font-size:11px}
+.copied{background:var(--sig)!important;border-color:var(--sig)!important;color:#fff!important}
+
+/* CA bar */
+.ca{display:flex;align-items:stretch;border:1.5px solid var(--ink);font-family:var(--mono);font-size:12.5px;min-width:0;background:var(--paper)}
+.ca .k{display:flex;align-items:center;padding:0 14px;background:var(--ink);color:var(--paper);letter-spacing:.08em}
+.ca .v{flex:1;min-width:0;padding:13px 14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink-2)}
+.ca .v.has{color:var(--ink)}
+.ca button{border-left:1.5px solid var(--ink);padding:0 16px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.ca button:hover{background:var(--ink);color:var(--paper)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--paper);border-bottom:1.5px solid transparent;transition:border-color .2s}
+.top.scrolled{border-bottom-color:var(--ink)}
+.nav{display:flex;align-items:center;gap:28px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font:800 27px/1 var(--cond);letter-spacing:.01em;text-transform:uppercase}
+.brand svg{height:27px;width:auto;display:block}
+.links{display:flex;gap:24px}
+.links a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.links a:hover{color:var(--ink)}
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:18px}
+.mini{display:flex;align-items:baseline;gap:8px;opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s;pointer-events:none}
+.top.mini-on .mini{opacity:1;transform:none;pointer-events:auto}
+.mini b{font:800 24px/1 var(--cond);text-transform:uppercase}
+.mini span{font-family:var(--mono);font-size:12px;color:var(--sig)}
+
+/* hero */
+.hero{position:relative;display:flex;flex-direction:column;min-height:calc(100vh - 62px);min-height:calc(100svh - 62px)}
+.hero .wrap{flex:1;width:100%;display:flex;flex-direction:column;justify-content:space-between;gap:clamp(14px,2.4vh,26px);padding-top:clamp(14px,2.6vh,30px);padding-bottom:clamp(18px,3vh,34px)}
+.h-top{display:flex;align-items:center;gap:22px;border-bottom:1.5px solid var(--ink);padding-bottom:12px}
+.h-top .mono{color:var(--ink-2)}
+.h-clock{margin-left:auto}
+.prev{font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);min-height:20px;margin-bottom:6px}
+.prev s{color:var(--ink-2);text-decoration-thickness:2px;text-decoration-color:var(--sig)}
+.word-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.word{position:relative;display:grid;font:850 var(--fs)/.8 var(--cond);letter-spacing:-.01em;text-transform:uppercase;height:calc(var(--fs) * .8);overflow:hidden;min-width:0;flex:1}
+.word .w{grid-area:1/1;display:flex;white-space:nowrap;width:max-content;justify-self:start}
+.word .ch{display:inline-block}
+.word i{display:inline-block;font-style:normal}
+.word .w.in i{animation:chIn .8s cubic-bezier(.16,.84,.2,1) both}
+.word .w.out i{animation:chOut .48s cubic-bezier(.7,0,.84,0) both}
+.word.dim{color:var(--ink-3)}
+@keyframes chIn{from{transform:translateY(106%)}}
+@keyframes chOut{to{transform:translateY(-106%)}}
+.ratio{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex:none;padding-bottom:4px}
+.ratio b{font:850 clamp(64px,8.6vw,150px)/.8 var(--cond);color:var(--sig);letter-spacing:-.01em}
+.ratio span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);text-align:right}
+.cells{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1.5px solid var(--ink)}
+.cells>div{padding:12px 16px 0 0;display:flex;flex-direction:column;gap:3px;min-width:0}
+.cells>div+div{padding-left:16px;border-left:1px solid var(--rule)}
+.cells dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.cells dd{margin:0;font-size:clamp(22px,2.1vw,32px);font-weight:500;letter-spacing:-.03em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cells span{font-family:var(--mono);font-size:12px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.h-bottom{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(20px,4vw,64px);align-items:end}
+h1{font-size:clamp(34px,3.7vw,60px);line-height:.98}
+.lede{margin:14px 0 0;font-size:clamp(16px,1.2vw,18px);color:var(--ink-2);max-width:36rem}
+.lede strong{color:var(--ink);font-weight:500}
+.h-cta{display:flex;flex-direction:column;gap:10px}
+.h-cta .row{display:flex;gap:10px}
+.h-cta .row .btn{flex:1}
+
+/* ticker */
+.ticker{position:relative;height:50px;background:var(--ink);overflow:hidden;flex:none}
+.tk{position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;white-space:nowrap;will-change:transform}
+.tk .g{display:inline-flex;align-items:center;gap:12px;padding-right:12px}
+.tk .g::after{content:"/";color:#3d3d42;font-family:var(--mono)}
+.tk span{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#77777d}
+.tk span.t{color:#e9e8e3}
+.tk span.h{color:var(--sig)}
+.tk-l{position:absolute;left:0;top:0;bottom:0;z-index:2;display:flex;align-items:center;gap:10px;padding:0 16px 0 var(--g);background:var(--sig);color:#fff;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+
+/* why: pinned rank chart */
+.pin{position:relative}
+#why{height:400vh}
+.pin-in{position:sticky;top:62px;height:calc(100vh - 62px);height:calc(100svh - 62px);display:flex;flex-direction:column;padding-block:clamp(16px,3vh,34px) clamp(14px,2.4vh,26px);gap:clamp(10px,1.8vh,18px)}
+.why-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.why-top h2{font-size:clamp(34px,4.4vw,74px);margin-top:12px}
+.clock{text-align:right;flex:none}
+.clock b{display:block;font:850 clamp(70px,9vw,150px)/.8 var(--cond);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.clock span{display:block;margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.clock span b{display:inline;font:inherit;color:var(--ink)}
+.clock span b.s{color:var(--sig)}
+.chart{flex:1;min-height:0;position:relative;border-top:1.5px solid var(--ink)}
+.chart canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.story{position:relative;height:clamp(52px,7vh,74px);border-top:1px solid var(--rule)}
+.story p{position:absolute;inset:0;margin:0;display:flex;align-items:center;font-size:clamp(19px,2.2vw,34px);font-weight:500;letter-spacing:-.025em;line-height:1.1;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.story p.on{opacity:1;transform:none}
+.story time{font-family:var(--mono);font-size:.5em;font-weight:500;letter-spacing:.06em;color:var(--sig);margin-right:16px;flex:none}
+.story em{font-style:normal;color:var(--sig)}
+
+/* plates */
+.plate{padding-block:clamp(90px,11vw,160px);scroll-margin-top:62px}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);gap:20px 64px;align-items:end;margin-bottom:clamp(30px,4vw,56px)}
+.head .tag{grid-column:1/-1}
+.head p{margin:0;color:var(--ink-2);font-size:17px;max-width:32rem}
+
+/* how: live pipeline */
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:3px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.st{position:relative;display:flex;flex-direction:column;gap:12px;padding:18px 22px 24px 0;min-width:0;min-height:340px}
+.st+.st{padding-left:22px;border-left:1px solid var(--rule)}
+.st+.st::before{content:"→";position:absolute;left:-9px;top:16px;width:18px;text-align:center;background:var(--paper);font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+.st .n{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.st .n b{font-weight:500;color:var(--ink)}
+.st .live{flex:1;display:flex;flex-direction:column;gap:8px;justify-content:center;min-height:0}
+.st p{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.45}
+.p-name{font-size:clamp(28px,2.8vw,44px);font-weight:500;letter-spacing:-.035em;line-height:1.02;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.p-sub{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.p-prev{display:flex;flex-direction:column;gap:4px;margin-top:14px;padding-top:10px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.p-prev span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:7px;padding:6px 9px 5px;border:1.5px solid var(--ink);font-family:var(--mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.chip small{font-size:10px;opacity:.75}
+.chip.t{background:var(--ink);color:var(--paper)}
+.chip.h{background:var(--sig);border-color:var(--sig);color:#fff}
+.chip.x{border-style:dashed;border-color:var(--rule-2);color:var(--ink-3);text-decoration:line-through}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:58px minmax(0,1fr) 30px;gap:10px;align-items:center;font-family:var(--mono);font-size:12px}
+.bar span{color:var(--ink-2)}
+.bar i{display:block;height:10px;background:var(--ink);transition:width .5s cubic-bezier(.2,.8,.2,1),background .2s}
+.bar b{font-weight:500;text-align:right}
+.bar.f i{background:var(--sig)}
+.bar.f span,.bar.f b{color:var(--sig)}
+.p-pick{font:850 clamp(60px,6.4vw,104px)/.8 var(--cond);text-transform:uppercase;letter-spacing:-.01em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.p-pick-x{font-family:var(--mono);font-size:13px;color:var(--sig)}
+
+/* board */
+.board{border-top:3px solid var(--ink)}
+.row{display:grid;grid-template-columns:56px minmax(160px,1.5fr) minmax(110px,.9fr) minmax(120px,1.2fr) .55fr .6fr .7fr .85fr;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:14px;transition:background .3s}
+.row.h{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding-block:12px}
+.row.h span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .rk{font:800 34px/1 var(--cond);color:var(--ink-3)}
+.row .th{font-family:var(--sans);font-size:clamp(19px,1.6vw,24px);font-weight:500;letter-spacing:-.025em;display:flex;align-items:baseline;gap:10px;min-width:0}
+.row .th small{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--ink-3)}
+.row .rx{font:800 clamp(34px,3.2vw,48px)/.85 var(--cond)}
+.row .rx.up{color:var(--sig)}
+.row .rx.dn{color:var(--ink-3)}
+.row .stt{font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.row .stt::before{content:"";width:8px;height:8px;background:var(--rule-2);flex:none}
+.row .stt.rising::before,.row .stt.new::before{background:var(--sig)}
+.row .stt.warm::before{background:var(--ink)}
+.row .stt.cooling::before{background:transparent;border:1.5px solid var(--ink-3)}
+.row.pk{background:rgba(36,67,255,.07);box-shadow:inset 4px 0 0 var(--sig)}
+.row.pk .rk{color:var(--sig);padding-left:12px}
+.row.dim{opacity:.4}
+.spark{width:100%;height:30px;display:block}
+.low{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,.85fr);gap:clamp(20px,3vw,48px);margin-top:clamp(40px,5vw,72px)}
+.low h3{font-size:26px;letter-spacing:-.03em;margin-bottom:6px}
+.low .note{margin:0 0 14px;font-size:14px;color:var(--ink-2)}
+.pickcard{border:1.5px solid var(--ink);padding:18px;display:flex;flex-direction:column;gap:12px;background:var(--paper)}
+.pc-top{display:flex;justify-content:space-between;gap:10px}
+.pc-name{font-size:28px;font-weight:500;letter-spacing:-.03em;line-height:1.05;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pc-name small{font-family:var(--mono);font-size:13px;color:var(--ink-2);margin-left:8px;letter-spacing:0}
+.pc-m{font:800 40px/.9 var(--cond)}
+.pc-meta{font-family:var(--mono);font-size:12px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:4px 16px}
+.pc-links,.pc-act{display:flex;flex-wrap:wrap;gap:8px}
+.pc-note{margin:0;font-size:12.5px;color:var(--ink-3)}
+.emerge{display:flex;flex-direction:column;border-top:1.5px solid var(--ink)}
+.em{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule)}
+.em b{font:800 34px/1 var(--cond);text-transform:uppercase;letter-spacing:.005em}
+.em span{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);text-align:right}
+.em.top b{color:var(--sig)}
+.empty{font-family:var(--mono);font-size:12px;color:var(--ink-3);padding:10px 0}
+.rlog{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.rlog li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:12.5px;color:var(--ink-2)}
+.rlog b{font-weight:500;color:var(--ink)}
+.rlog b.s{color:var(--sig)}
+.meta-line{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;margin-bottom:14px}
+.meta-line .mono{color:var(--ink-2)}
+.disclaim{margin:28px 0 0;font-size:13px;color:var(--ink-3);max-width:62rem}
+
+/* token: dark */
+.dark{background:var(--ink);color:var(--paper);position:relative;z-index:1}
+.dark .tag{color:var(--paper)}
+.big-t{font:850 clamp(110px,21vw,330px)/.8 var(--cond);letter-spacing:-.015em;margin:22px 0 0;white-space:nowrap}
+.big-t span{color:var(--sig)}
+.tok-sub{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;margin-top:clamp(28px,4vw,48px);padding-top:22px;border-top:1.5px solid var(--paper)}
+.tok-sub p{margin:0;font-size:clamp(20px,1.7vw,26px);letter-spacing:-.02em;line-height:1.25;font-weight:500}
+.facts{margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.facts div{display:flex;flex-direction:column;gap:4px;padding-right:12px}
+.facts dt{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8d8d92}
+.facts dd{margin:0;font-family:var(--mono);font-size:14px}
+.dark .ca{border-color:var(--paper);background:var(--ink)}
+.dark .ca .k{background:var(--paper);color:var(--ink)}
+.dark .ca .v{color:#a9a9ad}
+.dark .ca .v.has{color:var(--paper)}
+.dark .ca button{border-left-color:var(--paper)}
+.dark .ca button:hover{background:var(--paper);color:var(--ink)}
+.tok-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);margin-top:clamp(40px,5vw,72px)}
+.tok-l{display:flex;flex-direction:column;gap:18px}
+.wallet{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12.5px;color:#a9a9ad;border-top:1px solid #2a2a2e;padding-top:14px}
+.wallet a{color:var(--paper);border-bottom:1px solid #6b6b70}
+.fee-h{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+.fee-h b{font:850 72px/.8 var(--cond)}
+.fee-h span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8d8d92}
+.stack{display:flex;height:14px;gap:3px;margin-bottom:6px}
+.stack i{display:block;height:100%}
+.fee{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px solid #2a2a2e}
+.fee b{font:800 40px/.85 var(--cond)}
+.fee strong{display:block;font-weight:500;font-size:17px}
+.fee span span{font-size:14px;color:#a9a9ad}
+.loop{margin:clamp(32px,4vw,48px) 0 0;font-size:clamp(20px,1.8vw,28px);font-weight:500;letter-spacing:-.025em;max-width:46rem}
+.loop b{color:var(--sig);font-weight:500}
+.road{margin-top:clamp(48px,6vw,80px);border-top:1.5px solid var(--paper)}
+.road>div{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid #2a2a2e;align-items:baseline}
+.road .k{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8d8d92}
+.road .k.on{color:var(--sig)}
+.road ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 28px;font-size:18px;font-weight:500;letter-spacing:-.02em}
+
+/* faq */
+.faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,64px);border-top:3px solid var(--ink)}
+.faq div{padding:22px 0 24px;border-bottom:1px solid var(--rule)}
+.faq h3{font-size:clamp(20px,1.7vw,24px);letter-spacing:-.025em;margin-bottom:8px}
+.faq p{margin:0;color:var(--ink-2);max-width:36rem}
+
+/* footer */
+footer{padding-top:clamp(100px,13vw,180px);overflow:hidden;scroll-margin-top:62px}
+.final{font-size:clamp(48px,7.4vw,128px);line-height:.92;letter-spacing:-.045em;font-weight:500;margin:0 0 36px;max-width:14ch}
+.final span{color:var(--sig)}
+.f-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
+.f-cta .ca{flex:1 1 360px;max-width:520px}
+.ghost{font:850 calc(var(--fs) * 1.5)/.8 var(--cond);text-transform:uppercase;color:transparent;-webkit-text-stroke:1.5px var(--ink);letter-spacing:-.01em;white-space:nowrap;margin-top:clamp(60px,8vw,110px);opacity:.9}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:18px 0 28px;border-top:1.5px solid var(--ink);font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-2)}
+
+/* modal */
+.modal{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(241,240,236,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.modal-box{width:min(760px,100%);max-height:100%;overflow:auto;display:flex;flex-direction:column;gap:12px;padding:16px;background:var(--paper);border:1.5px solid var(--ink)}
+.modal-box img{width:100%;display:block;border:1px solid var(--rule)}
+.modal-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+
+/* reveal */
+[data-rv]{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+[data-rv].in{opacity:1;transform:none}
+
+@media (max-width:1080px){
+  .links{display:none}
+  .row{grid-template-columns:46px minmax(140px,1.4fr) minmax(90px,.9fr) minmax(100px,1fr) .7fr .8fr}
+  .row>:nth-child(5),.row>:nth-child(7){display:none}
+  .low{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .low>:first-child{grid-column:1/-1}
+  .pipe{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .st:nth-child(3){padding-left:0;border-left:0}
+  .st:nth-child(3)::before{display:none}
+  .st:nth-child(n+3){border-top:1px solid var(--rule)}
+}
+@media (max-width:760px){
+  .nav{gap:14px}
+  .mini b{font-size:20px}
+  .h-top{gap:14px;flex-wrap:wrap}
+  .h-clock{display:none}
+  .word-row{flex-direction:column;align-items:flex-start;gap:12px}
+  .word{width:100%;flex:none}
+  .ratio{flex-direction:row;align-items:baseline;gap:12px}
+  .ratio b{font-size:64px}
+  .ratio span{text-align:left}
+  .cells{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cells>div:nth-child(3){padding-left:0;border-left:0}
+  .cells>div:nth-child(n+3){border-top:1px solid var(--rule);padding-top:10px;margin-top:10px}
+  .h-bottom{grid-template-columns:minmax(0,1fr)}
+  .why-top{flex-direction:column;align-items:flex-start;gap:8px}
+  .why-top h2{font-size:34px;margin-top:8px}
+  .clock{text-align:left}
+  .clock b{font-size:72px}
+  #why{height:330vh}
+  .head{grid-template-columns:minmax(0,1fr)}
+  .pipe{grid-template-columns:minmax(0,1fr)}
+  .st,.st+.st{padding-left:0;border-left:0;min-height:0}
+  .st+.st{border-top:1px solid var(--rule)}
+  .st+.st::before{display:none}
+  .row{grid-template-columns:34px minmax(0,1.3fr) minmax(70px,.8fr) minmax(70px,.9fr)}
+  .row>:nth-child(5),.row>:nth-child(6),.row>:nth-child(7),.row>:nth-child(8){display:none}
+  .row .rk{font-size:26px}
+  .low{grid-template-columns:minmax(0,1fr)}
+  .tok-sub,.tok-grid{grid-template-columns:minmax(0,1fr)}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 0}
+  .road>div{grid-template-columns:minmax(0,1fr);gap:8px}
+  .faq{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){
+  .nav .btn{display:none}
+  .lamp span{display:none}
+  .h-cta .row{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  [data-rv]{opacity:1;transform:none;transition:none}
+  .word .w.in i,.word .w.out i{animation:none}
+  .lamp.live i{animation:none}
+  .story p{transition:none}
+}
+</style>
+
+</head>
+<body>
+<div class="cols" aria-hidden="true"><i></i></div>
+
+<header class="top" id="hdr">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="ROTATE home"><svg viewBox="230 270 600 540" aria-hidden="true"><rect x="250" y="372" width="500" height="418" rx="66" fill="#2443ff"/><path d="M562.6 367.5A118 118 0 0 1 742.0 302.2" fill="none" stroke="#2443ff" stroke-width="58"/><path d="M774.4 254.1L806.6 345.8L709.6 350.3Z" fill="#2443ff" stroke="#2443ff" stroke-width="10" stroke-linejoin="round"/><line x1="462" y1="490" x2="462" y2="556" stroke="#ffffff" stroke-width="30" stroke-linecap="round"/><line x1="566" y1="490" x2="566" y2="556" stroke="#ffffff" stroke-width="30" stroke-linecap="round"/><path d="M414 628 Q500 702 586 628" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round"/></svg>Rotate</a>
+    <nav class="links" aria-label="Sections"><a href="#why">Why</a><a href="#how">How</a><a href="#board">Board</a><a href="#token">Token</a><a href="#faq">FAQ</a></nav>
+    <div class="nav-r">
+      <a class="mini" href="#top" aria-label="Current pick"><b id="mini-w">—</b><span id="mini-x"></span></a>
+      <span class="lamp" id="lamp-nav"><i></i><span>Preview</span></span>
+      <a class="btn solid sm" id="buy-nav" href="https://pump.fun" target="_blank" rel="noopener">Buy $ROTATE</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO: the live word -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="h-top">
+        <span class="lamp" id="lamp-hero"><i></i><span>Preview</span></span>
+        <span class="mono" id="h-k">Rotating into</span>
+        <span class="mono h-clock" id="h-clock">—</span>
+      </div>
+      <div class="h-word">
+        <div class="prev" id="prev"></div>
+        <div class="word-row" id="word-row">
+          <div class="word" id="word" role="status" aria-live="polite" aria-atomic="true"></div>
+          <div class="ratio"><b id="ratio-x">—</b><span id="ratio-s">the hour before</span></div>
+        </div>
+      </div>
+      <dl class="cells">
+        <div><dt>Share of launches</dt><dd id="c-share">—</dd><span id="c-share-s"></span></div>
+        <div><dt>In this theme</dt><dd id="c-n">—</dd><span id="c-n-s"></span></div>
+        <div><dt>Leader</dt><dd id="c-lead">—</dd><span id="c-lead-s"></span></div>
+        <div><dt>New word</dt><dd id="c-new">—</dd><span id="c-new-s"></span></div>
+      </dl>
+      <div class="h-bottom">
+        <div>
+          <h1>Buys the next meta,<br>not the last one.</h1>
+          <p class="lede">Trending shows what already ran. ROTATE counts which words and themes are speeding up in <strong>new</strong> pump.fun launches right now, and buys the leader of the newest one. <strong>Your morning Trending check, automated.</strong></p>
+        </div>
+        <div class="h-cta">
+          <div class="row"><a class="btn solid" id="buy-hero" href="https://pump.fun" target="_blank" rel="noopener">Buy $ROTATE ↗</a><a class="btn" href="#board">Open the board</a></div>
+          <div class="ca" id="ca-hero"><span class="k">CA</span><span class="v has">6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump</span><button type="button">Copy</button></div>
+        </div>
+      </div>
+    </div>
+    <div class="ticker" aria-hidden="true"><div class="tk-l" id="tk-l">Launches</div><div class="tk" id="tk"></div></div>
+  </section>
+
+  <!-- WHY: pinned rank chart -->
+  <section class="pin" id="why">
+    <div class="pin-in wrap">
+      <div class="why-top">
+        <div><span class="tag">Why · an illustrative day</span><h2>Trending is a rear‑view mirror.</h2></div>
+        <div class="clock"><b id="clk">05:30</b><span id="clk-s">Trending says <b>AI</b> · ROTATE says <b class="s">AI</b></span></div>
+      </div>
+      <div class="chart"><canvas id="bump" aria-label="Rank chart: themes ranked by acceleration through an illustrative day, with ROTATE's pick and Trending's number one underneath"></canvas></div>
+      <div class="story" aria-live="polite">
+        <p class="on"><time>06:00</time><span>AI agents are the meta. Everyone can see it.</span></p>
+        <p><time>08:39</time><span>Cat launches start speeding up. ROTATE rotates in.</span></p>
+        <p><time>09:00</time><span>You open Axiom. Trending still says AI. You buy the last meta.</span></p>
+        <p><time>11:14</time><span>Cats finally top Trending. ROTATE is already in war.</span></p>
+        <p><span>Trending shows what ran. <em>Acceleration shows what’s next.</em></span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW: live pipeline -->
+  <section class="plate" id="how">
+    <div class="wrap">
+      <div class="head" data-rv>
+        <span class="tag">How</span>
+        <h2>One launch. Four steps. Every second.</h2>
+        <p>This is running right now on the latest pump.fun launch. Nothing here is a mockup.</p>
+      </div>
+      <div class="pipe" data-rv>
+        <div class="st"><div class="n"><span>01 · Hear</span><b id="p-age">—</b></div><div class="live"><div class="p-name" id="p-name">—</div><div class="p-sub" id="p-sym"></div><div class="p-prev" id="p-prev"></div></div><p>Every new coin arrives from pump.fun’s public launch stream the second it’s created.</p></div>
+        <div class="st"><div class="n"><span>02 · Split</span><b id="p-wc">—</b></div><div class="live"><div class="chips" id="p-chips"></div></div><p>Names and tickers become words. Filler like “the”, “coin” and “official” is dropped.</p></div>
+        <div class="st"><div class="n"><span>03 · Count</span><b id="p-win">10 min</b></div><div class="live"><div class="bars" id="p-bars"></div></div><p>Each theme’s share of the last ten minutes is compared with the hour before.</p></div>
+        <div class="st"><div class="n"><span>04 · Rotate</span><b id="p-st">—</b></div><div class="live"><div class="p-pick" id="p-pick">—</div><div class="p-pick-x" id="p-pick-x"></div></div><p>The theme speeding up hardest becomes the pick. The engine buys its leader and rotates when another theme overtakes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOARD -->
+  <section class="plate" id="board" style="padding-top:0">
+    <div class="wrap">
+      <div class="head" data-rv>
+        <span class="tag">The board</span>
+        <h2>Every theme, ranked by acceleration.</h2>
+        <p>Updates every two seconds in your browser. ROTATE only rotates when a new theme leads three checks in a row.</p>
+      </div>
+      <div class="meta-line"><span class="lamp" id="lamp-board"><i></i><span>Preview</span></span><span class="mono" id="b-heard">—</span><span class="mono" id="b-win">—</span></div>
+      <div class="board" role="table" aria-label="Themes ranked by acceleration">
+        <div class="row h" role="row"><span>#</span><span>Theme</span><span>Acceleration</span><span>Last 30 min</span><span id="bh-n">10 min</span><span>Share</span><span>Hour before</span><span>Status</span></div>
+        <div id="rows"></div>
+      </div>
+      <div class="low">
+        <div>
+          <h3>The pick</h3>
+          <p class="note">What the engine targets, shown so you can check it.</p>
+          <div class="pickcard">
+            <div class="pc-top"><span class="mono" id="pc-k">Leader</span><span class="mono" id="pc-src"></span></div>
+            <div class="pc-top" style="align-items:baseline"><span class="pc-name" id="pc-name">—</span><span class="pc-m" id="pc-m"></span></div>
+            <div class="pc-meta" id="pc-meta"></div>
+            <div class="pc-links" id="pc-links"></div>
+            <p class="pc-note">Not a recommendation. Not financial advice.</p>
+            <div class="pc-act"><button class="btn solid sm" type="button" id="card-btn">Make a rotation card</button><button class="btn sm" type="button" id="report-btn">Copy report</button></div>
+          </div>
+        </div>
+        <div>
+          <h3>Emerging words</h3>
+          <p class="note">Words outside every known theme that suddenly repeat, from different creators.</p>
+          <div class="emerge" id="emerge"></div>
+        </div>
+        <div>
+          <h3>Rotations</h3>
+          <p class="note">Every time the pick changed this session.</p>
+          <ul class="rlog" id="rlog"></ul>
+        </div>
+      </div>
+      <p class="disclaim" id="disclaim">ROTATE reads coin names and tickers, not images, charts or X. A theme without a keyword in its name stays invisible until it gets one. Many launches in a theme can also mean a crowded trade.</p>
+    </div>
+  </section>
+
+  <!-- TOKEN -->
+  <section class="plate dark" id="token">
+    <div class="wrap">
+      <span class="tag">The token</span>
+      <div class="big-t" data-rv><span>$</span>ROTATE</div>
+      <div class="tok-sub">
+        <p>The board is free. Creator fees fund the engine: one public wallet that buys the leader of the theme speeding up hardest, and rotates out when the meta moves.</p>
+        <dl class="facts">
+          <div><dt>Ticker</dt><dd>$ROTATE</dd></div>
+          <div><dt>Chain</dt><dd>Solana</dd></div>
+          <div><dt>Launch</dt><dd>pump.fun</dd></div>
+          <div><dt>Supply</dt><dd>1,000,000,000</dd></div>
+        </dl>
+      </div>
+      <div class="tok-grid">
+        <div class="tok-l">
+          <div class="ca" id="ca-token"><span class="k">CA</span><span class="v has">6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump</span><button type="button">Copy</button></div>
+          <div class="wallet"><span>Engine wallet</span><span id="wallet">Posted here after launch</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px" id="token-links"><a class="btn sig" id="buy-token" href="https://pump.fun" target="_blank" rel="noopener">Buy on pump.fun ↗</a></div>
+        </div>
+        <div>
+          <div class="fee-h"><b>$1.00</b><span>of creator fees</span></div>
+          <div class="stack" id="stack"></div>
+          <div id="fees"></div>
+        </div>
+      </div>
+      <p class="loop">When the engine rotates out of a theme with a profit, <b>the profit buys back $ROTATE.</b></p>
+      <div class="road">
+        <div><span class="k on">On at launch</span><ul><li>The live board on every launch</li><li>Emerging words</li><li>Rotation cards for X</li></ul></div>
+        <div><span class="k">Next</span><ul><li>Engine wallet live, every rotation posted</li><li>Hourly rotation report on X</li></ul></div>
+        <div><span class="k">Later</span><ul><li>Alerts when a theme crosses 2×</li><li>Your own word watchlists</li><li>Rotation history and an open API</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="plate" id="faq">
+    <div class="wrap">
+      <div class="head" data-rv><span class="tag">Questions</span><h2>Before you ask.</h2></div>
+      <div class="faq">
+        <div><h3>Does ROTATE tell me what to buy?</h3><p>No. It shows which themes are speeding up in new launches. The engine’s pick is shown so you can see what it targets, not as advice. Not financial advice.</p></div>
+        <div><h3>Is the board live?</h3><p>Yes. On ROTATE’s own site it reads pump.fun’s public launch stream directly in your browser. If the stream can’t be reached, it switches to a simulated preview and every lamp on the page says Preview.</p></div>
+        <div><h3>Why acceleration and not volume?</h3><p>Volume and Trending measure what already happened. A theme going from 2% to 9% of launches in ten minutes moves before the charts show it. That gap is the trade.</p></div>
+        <div><h3>How is the leader picked?</h3><p>Highest market cap among the theme’s launches in the last hour, from DexScreener’s free public data. If that data can’t be reached, the site says so and shows the latest launch in the theme instead.</p></div>
+        <div><h3>Is the engine buying right now?</h3><p>Not yet. The board and the pick run live from launch. The engine wallet goes live after launch, paid by creator fees, and its address is posted here and on X. Until then nothing is bought.</p></div>
+        <div><h3>What can’t it see?</h3><p>Names and tickers only. Images, charts and X posts are invisible to it. It counts launches, not quality.</p></div>
+        <div><h3>Will ROTATE DM me?</h3><p>Never. No presale, no airdrop, no support account. Anyone messaging you as ROTATE is not us.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="end">
+  <div class="wrap">
+    <p class="final" data-rv>The meta rotates.<br><span>So do we.</span></p>
+    <div class="f-cta">
+      <a class="btn solid" id="buy-foot" href="https://pump.fun" target="_blank" rel="noopener">Buy $ROTATE ↗</a>
+      <a class="btn" href="#board">Open the board</a>
+      <div class="ca" id="ca-foot"><span class="k">CA</span><span class="v has">6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump</span><button type="button">Copy</button></div>
+    </div>
+    <div class="ghost" id="ghost" aria-hidden="true">—</div>
+    <div class="foot"><span>ROTATE · buys the next meta, not the last one</span><span id="foot-links"></span><span>Not financial advice. Simulated data is always labeled Preview.</span></div>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Rotation card">
+    <div class="modal-row"><span class="mono">Rotation card</span><button class="btn sm" type="button" id="modal-close">Close</button></div>
+    <img id="card-img" alt="Rotation card with the theme ROTATE is rotating into and the top themes">
+    <div class="modal-row"><span class="mono" style="text-transform:none;letter-spacing:0;color:var(--ink-2)">Right-click or long-press the image to save it.</span><div style="display:flex;gap:8px"><button class="btn sm" type="button" id="card-copy">Copy text</button><a class="btn solid sm" id="card-dl" download="rotate.png" href="#">Save</a></div></div>
+  </div>
+</div>
+
+<script>
+/* ===== Edit these at launch ===== */
+const CONFIG = {
+  ca: "6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump",   // $ROTATE mint
+  x: "",              // e.g. "https://x.com/yourhandle"
+  dexscreener: "",    // optional
+  site: "",           // e.g. "rotate.fun", printed on rotation cards
+  engineWallet: "",   // the engine's public wallet, once it is live
+  stream: "wss://pumpportal.fun/api/data",   // free pump.fun launch stream, no key needed
+  fees: [
+    { label: "Engine bankroll", note: "Funds every rotation buy, from one public wallet", cents: 60 },
+    { label: "Servers and stream", note: "The board, history and this site", cents: 15 },
+    { label: "Development", note: "Alerts, the X report bot and the API", cents: 25 }
+  ]
+};
+
+/* ===== Basics ===== */
+const $ = id => document.getElementById(id);
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+const sstep = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isAddr = s => /^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(s);
+const short = s => s && s.length > 12 ? s.slice(0, 4) + "…" + s.slice(-4) : (s || "");
+const hex2rgb = h => { const n = parseInt(h.slice(1), 16); return [(n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255]; };
+const toHex = c => "#" + c.map(v => Math.round(clamp(v, 0, 1) * 255).toString(16).padStart(2, "0")).join("");
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pad = n => String(n).padStart(2, "0");
+const fmtX = r => !isFinite(r) ? "—" : r >= 9.95 ? "10×+" : r.toFixed(1) + "×";
+const fmtPct = v => (v * 100).toFixed(v < .1 ? 1 : 0) + "%";
+const fmtUsd = v => v >= 1e6 ? "$" + (v / 1e6).toFixed(2) + "M" : v >= 1e3 ? "$" + (v / 1e3).toFixed(1) + "K" : "$" + Math.round(v);
+const utc = t => { const d = new Date(t); return pad(d.getUTCHours()) + ":" + pad(d.getUTCMinutes()); };
+const ago = ms => ms < 60e3 ? Math.max(1, Math.round(ms / 1000)) + "s" : Math.round(ms / 60e3) + "m";
+const B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+const rnd = a => a[(Math.random() * a.length) | 0];
+const randn = () => { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(6.2832 * v); };
+const randStr = (n, tail = "") => { let s = ""; for (let i = 0; i < n; i++) s += B58[(Math.random() * 58) | 0]; return s + tail; };
+
+/* ===== Themes and words ===== */
+const THEMES = [
+  { code: "AI",    name: "AI & agents",    col: "#9db6ff", prior: .09,  re: /\b(ai|agi|gpt\w*|llm|agents?|agentic|bots?|claude|grok|gemini|openai|deepseek|neural|robots?|robo|cyborgs?|androids?|sentient|compute)\b/ },
+  { code: "CAT",   name: "Cats",           col: "#ffc0a0", prior: .05,  re: /\b(cats?|kitty|kitties|kittens?|meow\w*|neko|purr\w*|catwif\w*|nyan|feline|tabby)\b/ },
+  { code: "DOG",   name: "Dogs",           col: "#cdb8ff", prior: .07,  re: /\b(dogs?|doge\w*|inu|shiba|pups?|puppy|puppies|woof|corgi|pugs?|doggo|wif|bonk|husky)\b/ },
+  { code: "FROG",  name: "Frogs",          col: "#9cefc2", prior: .03,  re: /\b(pepe\w*|frogs?|froggy|toad|kek|ribbit|apu)\b/ },
+  { code: "WAR",   name: "War & world",    col: "#ff94a4", prior: .025, re: /\b(war|wars|ww3|wwiii|missiles?|nukes?|nuclear|army|troops|military|soldiers?|tanks?|drones?|bombs?|invasion|ceasefire|iran|israel|ukraine|russia|taiwan|nato|pentagon|defcon)\b/ },
+  { code: "POL",   name: "Politics",       col: "#8fd3ff", prior: .04,  re: /\b(trump|maga|biden|votes?|election|president|kamala|vance|senate|congress|democrats?|republicans?|potus|obama|putin|tariffs?)\b/ },
+  { code: "CELEB", name: "Celebs & CT",    col: "#ffcdee", prior: .035, re: /\b(elon|musk|kanye|drake|mrbeast|toly|ansem|cz|saylor|vitalik|snoop|swift|tate|rogan|bieber|kardashian|zuck)\b/ },
+  { code: "GAME",  name: "Games",          col: "#a8f3ea", prior: .03,  re: /\b(games?|gaming|arcade|quest|rpg|pixel|casino|slots?|poker|tycoon|mmo|esports?|minecraft|roblox|fortnite|gta)\b/ },
+  { code: "ANIME", name: "Anime",          col: "#ffaad6", prior: .02,  re: /\b(anime|waifu|chan|senpai|kawaii|manga|otaku|uwu|baka)\b/ },
+  { code: "FOOD",  name: "Food",           col: "#f6dcae", prior: .02,  re: /\b(pizza|burgers?|tacos?|sushi|ramen|banana|cheese|cookies?|donuts?|bread|coffee|beer|noodles?|fries|bacon)\b/ },
+  { code: "SPACE", name: "Space",          col: "#b3c6ff", prior: .025, re: /\b(moon|mars|space|rockets?|nasa|aliens?|ufo|galaxy|planets?|astro\w*|cosmic|starship)\b/ },
+  { code: "MONEY", name: "Money & stocks", col: "#c2f2a6", prior: .03,  re: /\b(stocks?|stonks?|bank|banks|fed|dollars?|usd|gold|silver|treasury|bonds?|rwa|etf|nasdaq|cash|rich|money)\b/ },
+  { code: "ZOO",   name: "Other animals",  col: "#f1c9ab", prior: .04,  re: /\b(monkey|apes?|penguins?|pengu|bears?|hamsters?|ducks?|goats?|horse|fish|sharks?|whales?|owl|raccoon|capybara|otters?|panda|fox|wolf|lion|tiger|snake|chicken|bird|cow|pig|rats?|mouse|hippo|moodeng|turtle|bunny|rabbit|sloth)\b/ }
+];
+const THEME_RGB = THEMES.map(t => hex2rgb(t.col));
+const WORD_COL = "#f3f0ff", WORD_RGB = hex2rgb(WORD_COL);
+const themeIdx = code => THEMES.findIndex(t => t.code === code);
+const STOP = new Set("the and for with coin coins token tokens official sol solana pump pumpfun fun meme memes memecoin new first real just this that you your our its not are was all one get got from has have will can who what why how when about like more most best big little super mega mini baby lil based ticker fair stealth launch classic reborn inc labs".split(" "));
+const ALLOW2 = new Set(["ai", "cz"]);
+function rawWords(name, sym){
+  return ((name || "") + " " + (sym || "")).replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").split(/[^a-z0-9]+/).filter(Boolean);
+}
+const keepWord = w => !/^\d+$/.test(w) && (w.length >= 3 || ALLOW2.has(w)) && w.length <= 20 && !STOP.has(w);
+function tokenize(name, sym){ const out = []; for (const w of rawWords(name, sym)) if (keepWord(w) && !out.includes(w)) out.push(w); return out; }
+const wordTheme = new Map();
+function themeOfWord(w){
+  if (wordTheme.has(w)) return wordTheme.get(w);
+  const t = " " + w + " "; let k = -1;
+  for (let i = 0; i < THEMES.length; i++) if (THEMES[i].re.test(t)){ k = i; break; }
+  if (wordTheme.size > 20000) wordTheme.clear();
+  wordTheme.set(w, k); return k;
+}
+function themesOf(words){ const t = " " + words.join(" ") + " ", r = []; THEMES.forEach((T, i) => { if (T.re.test(t)) r.push(i); }); return r; }
+function mkEvent(t, mint, name, sym, dev, mc){ const w = tokenize(name, sym); return { t, mint, name: String(name || "").slice(0, 64), sym: String(sym || "").slice(0, 16), dev: dev || "", w, th: themesOf(w), mc: mc || 0 }; }
+
+/* ===== Engine ===== */
+const SHORT = 10 * 60e3, HOUR = 60 * 60e3;
+let mode = "preview";
+let events = [], heard = 0;
+let stats = [], emerging = [], liveRanks = [];
+let pick = null, challenger = null, chalN = 0, holdN = 0;
+let rotations = [];
+let leader = null, leaderErr = false, leaderFor = "", leaderBusy = false, leaderAt = 0;
+let rate = 0, nS = 0, nB = 0, shortMs = SHORT, calibrating = true, lastCompute = 0;
+
+function compute(now){
+  const cut = now - HOUR - 60e3; let i0 = 0;
+  while (i0 < events.length && events[i0].t < cut) i0++;
+  if (i0) events.splice(0, i0);
+  const span = events.length ? now - events[0].t : 0;
+  shortMs = span >= 30 * 60e3 ? SHORT : Math.max(90e3, span / 3);
+  const sStart = now - shortMs;
+  const kS = new Array(THEMES.length).fill(0), kB = kS.slice();
+  const mins = THEMES.map(() => new Array(30).fill(0));
+  const wS = new Map(), wB = new Map();
+  let ns = 0, nb = 0, n5 = 0;
+  for (const e of events){
+    const inS = e.t >= sStart;
+    if (inS) ns++; else nb++;
+    if (e.t >= now - 5 * 60e3) n5++;
+    const m = Math.floor((now - e.t) / 60e3);
+    for (const ti of e.th){ if (inS) kS[ti]++; else kB[ti]++; if (m < 30) mins[ti][29 - m]++; }
+    for (const w of e.w){
+      if (themeOfWord(w) >= 0) continue;
+      if (inS){ let o = wS.get(w); if (!o){ o = { k: 0, devs: new Set() }; wS.set(w, o); } o.k++; o.devs.add(e.dev || e.mint); }
+      else wB.set(w, (wB.get(w) || 0) + 1);
+    }
+  }
+  nS = ns; nB = nb;
+  rate = n5 / clamp(span / 60e3, .5, 5);
+  calibrating = ns < 30 || span < 4 * 60e3;
+  stats = THEMES.map((T, i) => {
+    const pb = (kB[i] + 40 * T.prior) / (nb + 40);
+    const ss = (kS[i] + 12 * pb) / (ns + 12);
+    const ratio = ss / pb, conf = 1 - Math.exp(-kS[i] / 5), E = pb * ns, z = (kS[i] - E) / Math.sqrt(E + 1);
+    const score = Math.log(ratio) * conf * clamp((z + 1) / 4, .25, 1) + (pb < .03 ? .05 * conf : 0);
+    const status = calibrating ? "cal" : kS[i] + kB[i] === 0 ? "quiet" : (ratio >= 1.5 && kS[i] >= 5) ? "rising" : ratio >= 1.15 ? "warm" : ratio <= .72 ? "cooling" : "steady";
+    return { i, key: T.code, name: T.name, col: T.col, k: kS[i], kb: kB[i], share: ns ? kS[i] / ns : 0, base: nb ? kB[i] / nb : T.prior, ratio, z, score, status, mins: mins[i] };
+  });
+  const em = [];
+  wS.forEach((o, w) => {
+    if (o.k < 3) return;
+    const kb = wB.get(w) || 0;
+    const pb = Math.max(.003, (kb + 40 * .003) / (nb + 40)), ss = (o.k + 12 * pb) / (ns + 12), ratio = ss / pb;
+    const conf = 1 - Math.exp(-o.k / 5), E = pb * ns, z = (o.k - E) / Math.sqrt(E + 1);
+    em.push({ w, k: o.k, kb, devs: o.devs.size, ratio, z, rare: kb / Math.max(1, nb) < .008, score: Math.log(Math.min(ratio, 8)) * conf * .85 * Math.min(1, o.devs.size / 4) * clamp((z - 2) / 3, 0, 1), isNew: kb === 0, share: ns ? o.k / ns : 0 });
+  });
+  em.sort((a, b) => b.score - a.score || b.k - a.k);
+  emerging = em.slice(0, 8);
+  decide(now);
+  buildLiveRanks();
+  lastCompute = now;
+}
+function candidates(){
+  const c = [];
+  if (calibrating) return c;
+  stats.forEach(s => { if (s.k >= 6 && s.ratio >= 1.5 && s.z >= 3) c.push({ key: s.key, kind: "theme", i: s.i, ratio: s.ratio, score: s.score, k: s.k, name: s.name }); });
+  emerging.forEach(e => { if (e.k >= 5 && e.devs >= 4 && e.ratio >= 2.2 && e.z >= 3.5 && e.rare) c.push({ key: "W:" + e.w, kind: "word", w: e.w, ratio: e.ratio, score: e.score, k: e.k, name: "“" + e.w + "”" }); });
+  c.sort((a, b) => b.score - a.score);
+  return c;
+}
+function decide(now){
+  const c = candidates(), top = c[0] || null;
+  const cur = pick ? c.find(x => x.key === pick.key) : null;
+  if (pick){ if (cur){ Object.assign(pick, cur); holdN = 0; } else holdN++; }
+  if (!top){ challenger = null; chalN = 0; if (pick && holdN > 45){ logRotation(now, pick, null); pick = null; } return; }
+  if (!pick){ pick = Object.assign({}, top, { since: now }); logRotation(now, null, pick); return; }
+  if (top.key === pick.key){ challenger = null; chalN = 0; return; }
+  const curScore = cur ? cur.score : -1;
+  if (top.score > curScore * 1.1 + .03){
+    if (challenger === top.key) chalN++; else { challenger = top.key; chalN = 1; }
+    if (chalN >= 3){ const prev = pick; pick = Object.assign({}, top, { since: now }); logRotation(now, prev, pick); challenger = null; chalN = 0; }
+  } else { challenger = null; chalN = 0; }
+}
+function logRotation(t, from, to){
+  rotations.unshift({ t, from: from ? from.name : null, to: to ? to.name : null, ratio: to ? to.ratio : 0 });
+  rotations = rotations.slice(0, 12);
+  leader = null; leaderFor = ""; leaderAt = 0;
+}
+function pickStat(){
+  if (!pick) return null;
+  if (pick.kind === "theme") return stats[pick.i];
+  const e = emerging.find(x => x.w === pick.w);
+  return e ? { key: pick.key, name: pick.name, k: e.k, share: e.share, ratio: e.ratio, status: "new", base: nB ? e.kb / nB : 0 } : { key: pick.key, name: pick.name, k: pick.k, share: 0, ratio: pick.ratio, status: "new", base: 0 };
+}
+function buildLiveRanks(){
+  const rows = stats.filter(r => r.status !== "quiet").sort((a, b) => b.score - a.score || b.k - a.k);
+  const list = rows.slice(0, 6);
+  if (pick && pick.kind === "theme" && !list.some(r => r.key === pick.key)) list[5] = stats[pick.i];
+  const items = list.map(r => ({ key: r.key, label: r.key, col: THEME_RGB[r.i], share: r.share, ratio: r.ratio, score: r.score, status: r.status, hash: r.i }));
+  let ew = pick && pick.kind === "word" ? emerging.find(e => e.w === pick.w) : null;
+  if (!ew) ew = emerging.find(e => e.k >= 4 && e.devs >= 3 && e.ratio >= 1.8 && e.z >= 3 && e.rare) || null;
+  if (ew) items.push({ key: "W:" + ew.w, label: "“" + ew.w + "”", col: WORD_RGB, share: ew.share, ratio: ew.ratio, score: ew.score, status: "new", hash: 13 });
+  items.sort((a, b) => b.score - a.score);
+  items.forEach((it, i) => it.rank = i);
+  items.slice().sort((a, b) => a.hash - b.hash).forEach((it, i) => it.hrank = i);
+  liveRanks = items;
+}
+const livePickKey = () => pick ? pick.key : null;
+const pickName = () => pick ? (pick.kind === "theme" ? THEMES[pick.i].name : pick.name) : "";
+function themeEvents(p){
+  const out = [], seen = new Set();
+  for (let j = events.length - 1; j >= 0 && out.length < 30; j--){
+    const e = events[j];
+    const hit = p.kind === "theme" ? e.th.includes(p.i) : e.w.includes(p.w);
+    if (hit && !seen.has(e.mint)){ seen.add(e.mint); out.push(e); }
+  }
+  return out;
+}
+async function refreshLeader(){
+  if (!pick){ leader = null; return; }
+  const list = themeEvents(pick); if (!list.length) return;
+  const forKey = pick.key;
+  if (mode === "preview"){
+    const best = list.reduce((a, b) => b.mc > a.mc ? b : a);
+    leader = { mint: best.mint, name: best.name, sym: best.sym, mcap: best.mc, src: "sim", t: best.t };
+    leaderFor = forKey; leaderAt = Date.now(); renderLeader(); return;
+  }
+  if (leaderBusy) return; leaderBusy = true;
+  try {
+    const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 7000);
+    const r = await fetch("https://api.dexscreener.com/tokens/v1/solana/" + list.map(e => e.mint).join(","), { signal: ctl.signal });
+    clearTimeout(to);
+    if (!r.ok) throw new Error("http " + r.status);
+    const arr = await r.json(), best = new Map();
+    (Array.isArray(arr) ? arr : (arr && arr.pairs) || []).forEach(p => {
+      const m = p && p.baseToken && p.baseToken.address; if (!m) return;
+      const mc = +(p.marketCap || p.fdv || 0), cur = best.get(m);
+      if (!cur || mc > cur.mcap) best.set(m, { mint: m, name: p.baseToken.name, sym: p.baseToken.symbol, mcap: mc, vol: p.volume ? (+p.volume.h1 || 0) : 0, url: p.url, src: "dex" });
+    });
+    let top = null; best.forEach(v => { if (!top || v.mcap > top.mcap) top = v; });
+    if (pick && pick.key === forKey){
+      if (top){ leader = top; leaderErr = false; }
+      else { const e = list.find(x => x.grad) || list[0]; leader = { mint: e.mint, name: e.name, sym: e.sym, src: "latest", t: e.t }; }
+    }
+  } catch (err){
+    leaderErr = true;
+    if (pick && pick.key === forKey){ const e = list.find(x => x.grad) || list[0]; leader = { mint: e.mint, name: e.name, sym: e.sym, src: "latest", t: e.t }; }
+  }
+  leaderFor = forKey; leaderAt = Date.now(); leaderBusy = false; renderLeader();
+}
+
+/* ===== Preview simulator ===== */
+const VOCAB = {
+  AI: ["Agent", "AI", "GPT", "Bot", "Neural", "Robo", "AGI", "Claude", "Grok"], CAT: ["Cat", "Kitty", "Meow", "Neko", "Purr", "Catwif"],
+  DOG: ["Dog", "Doge", "Inu", "Shiba", "Pup", "Woof", "Corgi"], FROG: ["Pepe", "Frog", "Kek", "Ribbit", "Apu"],
+  WAR: ["War", "Missile", "Nuke", "Army", "WW3", "Drone", "Tank", "Defcon"], POL: ["Trump", "Maga", "Vote", "Senate", "Tariff"],
+  CELEB: ["Elon", "Musk", "Toly", "Ansem", "Kanye"], GAME: ["Game", "Arcade", "Pixel", "Quest", "Casino"], ANIME: ["Waifu", "Anime", "Senpai", "Chan"],
+  FOOD: ["Pizza", "Burger", "Ramen", "Banana", "Taco"], SPACE: ["Moon", "Mars", "Rocket", "Alien", "UFO"], MONEY: ["Stonks", "Bank", "Dollar", "Gold", "Treasury"],
+  ZOO: ["Monkey", "Penguin", "Hamster", "Capybara", "Otter", "Goat"]
+};
+const FILL = ["Baby", "King", "Mini", "Based", "Lil", "Dark", "Sad", "Happy", "Fat", "Tiny", "Mr", "Big", "Sir", "Wild", "Last", "Lord", "Mad", "Holy", "Retro", "Turbo", "Giga"];
+const NOISE = ["Zorp", "Blinky", "Glimmer", "Wobble", "Snorlo", "Dingus", "Fren", "Wagmi", "Bloop", "Lumen", "Vibe", "Rizz", "Sigma", "Aura", "Mog", "Plonk", "Fizz", "Yolo", "Hodl", "Degen", "Nub", "Gm"];
+const SIM_SEQ = ["CAT", "W:glorp", "WAR", "AI", "FROG", "GAME", "ZOO", "SPACE"];
+const SIM_PERIOD = 14 * 60e3, SIM_RATE = 22 / 60e3;
+let SIM_T0 = Date.now() - .72 * SIM_PERIOD, simTimer = null;
+function simPhase(t){
+  const cyc = (t - SIM_T0) / SIM_PERIOD, c = Math.floor(cyc), L = SIM_SEQ.length;
+  return { hot: SIM_SEQ[((c % L) + L) % L], prev: SIM_SEQ[(((c - 1) % L) + L) % L], ph: cyc - c };
+}
+function simWeight(key, prior, P){
+  const isW = key.startsWith("W:");
+  if (key === P.hot) return prior * (1 + (isW ? 14 : 4.6) * sstep(0, .6, P.ph));
+  if (key === P.prev) return prior * (1 + (isW ? 6 : 3) * (1 - sstep(0, .45, P.ph)));
+  return prior;
+}
+function simName(key){
+  const r = Math.random();
+  if (key === null){ const a = rnd(NOISE); return r < .5 ? [a, a.toUpperCase()] : [rnd(FILL) + " " + a, a.toUpperCase()]; }
+  const word = key.startsWith("W:") ? key.slice(2).replace(/^./, c => c.toUpperCase()) : rnd(VOCAB[key]);
+  let name = r < .35 ? word : r < .7 ? rnd(FILL) + " " + word : r < .88 ? word + " " + rnd(NOISE) : rnd(FILL) + " " + word + " " + rnd(NOISE);
+  const sym = word.toUpperCase().slice(0, 10);
+  return [name, sym];
+}
+function simEvent(t){
+  const P = simPhase(t); let total = 0;
+  const ws = THEMES.map(T => { const w = simWeight(T.code, T.prior, P); total += w; return w; });
+  const wordKey = "W:glorp", ww = simWeight(wordKey, .004, P); total += ww;
+  const other = .36; let x = Math.random() * (total + other), key = null;
+  for (let i = 0; i < ws.length; i++){ if ((x -= ws[i]) < 0){ key = THEMES[i].code; break; } }
+  if (key === null && (x -= ww) < 0) key = wordKey;
+  const [name, sym] = simName(key);
+  const hot = key === P.hot ? 1 + 3 * P.ph : 1;
+  const mc = Math.min(2.4e6, 4200 * Math.exp(randn() * 1.05) * hot * (Math.random() < .04 ? 6 : 1));
+  return mkEvent(t, randStr(40, "pump"), name, sym, randStr(10), mc);
+}
+const simGap = () => -Math.log(1 - Math.random()) / SIM_RATE;
+function simTick(){
+  if (mode !== "preview") return;
+  const e = simEvent(Date.now()); events.push(e); heard++; onLaunch(e);
+  simTimer = setTimeout(simTick, simGap());
+}
+function startPreview(){
+  const now = Date.now();
+  for (let t = now - 46 * 60e3; t < now; t += simGap()){ events.push(simEvent(t)); heard++; }
+  compute(now);
+  for (let j = Math.max(0, events.length - 8); j < events.length; j++) pushTape(events[j], true);
+  simTimer = setTimeout(simTick, 900);
+}
+
+
+const WORDS = { AI: "AI", CAT: "CATS", DOG: "DOGS", FROG: "FROGS", WAR: "WAR", POL: "POLITICS", CELEB: "CELEBS", GAME: "GAMES", ANIME: "ANIME", FOOD: "FOOD", SPACE: "SPACE", MONEY: "MONEY", ZOO: "ANIMALS" };
+const wordForKey = k => !k ? "" : k.startsWith("W:") ? k.slice(2).toUpperCase() : (WORDS[k] || k);
+const setText = (id, v) => { const el = $(id); if (el && el.textContent !== v) el.textContent = v; };
+const utcS = t => { const d = new Date(t); return pad(d.getUTCHours()) + ":" + pad(d.getUTCMinutes()) + ":" + pad(d.getUTCSeconds()); };
+const winLabel = () => Math.round(shortMs / 60e3) + " min";
+const goodWord = e => e.k >= 3 && e.ratio >= 1.6 && e.z >= 2.2 && e.rare;
+
+/* ===== Live stream ===== */
+const LS = "rotate.live.v1";
+let ws = null, tries = 0, liveSince = 0;
+function saveLive(){
+  if (mode !== "live") return;
+  try { const keep = events.filter(e => e.t > Date.now() - HOUR).slice(-3500).map(e => [e.t, e.mint, e.name, e.sym, e.dev]); localStorage.setItem(LS, JSON.stringify({ v: 1, at: Date.now(), e: keep })); } catch (err){}
+}
+function loadLive(){
+  try { const o = JSON.parse(localStorage.getItem(LS) || "null"); if (!o || o.v !== 1 || Date.now() - o.at > 15 * 60e3 || !Array.isArray(o.e)) return []; return o.e.map(a => mkEvent(a[0], a[1], a[2], a[3], a[4])); } catch (err){ return []; }
+}
+function setMode(m){
+  mode = m;
+  document.querySelectorAll(".lamp").forEach(l => { l.classList.toggle("live", m === "live"); const s = l.querySelector("span"); if (s) s.textContent = m === "live" ? "Live" : "Preview"; });
+  setText("tk-l", m === "live" ? "Live launches" : "Preview launches");
+}
+function goLive(){
+  clearTimeout(simTimer);
+  events = loadLive(); heard = events.length; rotations = []; pick = null; leader = null; challenger = null; chalN = 0; holdN = 0; prevPick = null; lastPickKey = null;
+  liveSince = Date.now(); tkQ.length = 0; tkHist.length = 0;
+  setMode("live"); compute(Date.now()); renderAll();
+}
+function connect(){
+  if (tries++ > 6) return;
+  try { ws = new WebSocket(CONFIG.stream); } catch (err){ return; }
+  ws.onopen = () => { try { ws.send(JSON.stringify({ method: "subscribeNewToken" })); ws.send(JSON.stringify({ method: "subscribeMigration" })); } catch (err){} };
+  ws.onmessage = msg => {
+    let d; try { d = JSON.parse(msg.data); } catch (err){ return; }
+    if (!d || !d.mint) return;
+    if (d.txType === "create" && (d.name || d.symbol)){
+      if (mode !== "live") goLive();
+      tries = 0;
+      const e = mkEvent(Date.now(), d.mint, d.name, d.symbol, d.traderPublicKey);
+      events.push(e); heard++; onLaunch(e);
+    } else if (mode === "live" && d.txType !== "create"){
+      for (let j = events.length - 1; j >= 0 && j > events.length - 4000; j--){ if (events[j].mint === d.mint){ events[j].grad = true; break; } }
+    }
+  };
+  ws.onclose = () => { setTimeout(connect, 3000 * tries); };
+  ws.onerror = () => {};
+}
+
+/* ===== The illustrative day ===== */
+const DAY = [
+  { key: "AI",   base: .06,  amp: .17,  pk: 6.3,  ri: 2.0, fa: 2.4 },
+  { key: "CAT",  base: .022, amp: .2,   pk: 10.3, ri: .95, fa: 2.3 },
+  { key: "WAR",  base: .016, amp: .22,  pk: 12.9, ri: .9,  fa: 2.0 },
+  { key: "DOG",  base: .07,  amp: .012, pk: 9,    ri: 3,   fa: 3 },
+  { key: "FROG", base: .03,  amp: .07,  pk: 3.6,  ri: 1.4, fa: 1.6 },
+  { key: "GAME", base: .03,  amp: .025, pk: 12.5, ri: 2,   fa: 2 }
+];
+const dShare = (d, h) => d.base + d.amp * Math.exp(-Math.pow((h - d.pk) / (h < d.pk ? d.ri : d.fa), 2));
+const dMean = (d, a, b) => { let s = 0; for (let k = 0; k < 12; k++) s += dShare(d, a + (b - a) * (k + .5) / 12); return s / 12; };
+const DAYT = (() => {
+  const out = []; let pk = 0;
+  for (let m = 240; m <= 960; m++){
+    const h = m / 60;
+    const share = DAY.map(d => dShare(d, h));
+    const acc = DAY.map(d => dMean(d, h - 1 / 6, h) / dMean(d, h - 7 / 6, h - 1 / 6));
+    const tr = DAY.map(d => { let s = 0; for (let k = 0; k < 40; k++){ const t = h - 5 + 5 * (k + .5) / 40; s += Math.max(0, dShare(d, t) - d.base * .6) * Math.sqrt((k + .5) / 40); } return s; });
+    let best = -1, bv = 1.25;
+    acc.forEach((a, i) => { if (a > bv && share[i] > .02){ bv = a; best = i; } });
+    if (best >= 0) pk = best; else if (pk >= 0 && acc[pk] < 1) pk = -1;
+    out.push({ share, acc, pick: pk, trend: tr.indexOf(Math.max.apply(null, tr)) });
+  }
+  return out;
+})();
+const dayAt = h => DAYT[clamp(Math.round(h * 60), 240, 960) - 240];
+
+
+/* ===== Launch handling and ticker ===== */
+const tk = $("tk"), tkQ = [], tkHist = [];
+let tkX = 0, pipeLast = 0, pipeEvent = null, tkCyc = 0;
+function onLaunch(e){
+  tkQ.push(e); pushTape(e);
+  const now = performance.now();
+  if (now - pipeLast > 1400){ pipeLast = now; pipeEvent = e; renderPipe(e, true); }
+}
+function pushTape(e){ tkHist.push(e); if (tkHist.length > 80) tkHist.shift(); }
+const isHot = w => pick && (pick.kind === "word" ? w === pick.w : themeOfWord(w) === pick.i);
+function tkAppend(e){
+  const g = document.createElement("span"); g.className = "g";
+  const nw = rawWords(e.name, "").filter(keepWord), ws = nw.length ? nw : e.w.length ? e.w : rawWords(e.name, e.sym).slice(0, 2);
+  g.innerHTML = ws.slice(0, 4).map(w => `<span class="${isHot(w) ? "h" : themeOfWord(w) >= 0 ? "t" : ""}">${esc(w)}</span>`).join("") || `<span>${esc(e.sym || e.name)}</span>`;
+  tk.appendChild(g);
+}
+function tkFill(){
+  if (tkQ.length > 24) tkQ.splice(0, tkQ.length - 24);
+  let guard = 0;
+  while (tk.scrollWidth + tkX < innerWidth * 2 && guard++ < 40){
+    let e = tkQ.shift();
+    if (!e){ if (!tkHist.length) break; e = tkHist[tkCyc++ % tkHist.length]; }
+    tkAppend(e);
+  }
+}
+function tkStep(dt){
+  if (reduce) return;
+  tkX -= 64 * dt;
+  const first = tk.firstElementChild;
+  if (first && tkX + first.offsetWidth < 0){ tkX += first.offsetWidth; first.remove(); }
+  tk.style.transform = `translate3d(${tkX.toFixed(1)}px,0,0)`;
+}
+
+/* ===== The live word ===== */
+const wordEl = $("word");
+let wordText = "", wordAnim = false, prevPick = null, lastPickKey = null;
+function displayWord(){ return pick ? wordForKey(pick.key) : calibrating ? "Scanning" : "Holding"; }
+function setWord(text, animate){
+  if (text === wordText) return;
+  wordText = text;
+  const old = wordEl.querySelector(".w:not(.out)");
+  const w = document.createElement("span"); w.className = "w";
+  w.innerHTML = [...text].map((c, i) => `<span class="ch"><i style="animation-delay:${(old && animate ? 240 : 80) + i * 42}ms">${c === " " ? "&nbsp;" : esc(c)}</i></span>`).join("");
+  if (!animate || reduce || !old){ wordEl.innerHTML = ""; if (animate && !reduce) w.classList.add("in"); wordEl.appendChild(w); }
+  else {
+    old.classList.add("out"); old.querySelectorAll("i").forEach((el, i) => el.style.animationDelay = i * 32 + "ms");
+    setTimeout(() => old.remove(), 1000);
+    w.classList.add("in"); wordEl.appendChild(w);
+  }
+  wordEl.classList.toggle("dim", !pick);
+  fitWord();
+  setText("mini-w", text); $("ghost").textContent = text;
+}
+function fitWord(){
+  const w = wordEl.querySelector(".w:not(.out)"); if (!w) return;
+  const row = $("word-row"), mobile = innerWidth < 760;
+  const ratioW = mobile ? 0 : row.querySelector(".ratio").offsetWidth + 28;
+  const avail = Math.max(120, row.clientWidth - ratioW);
+  document.documentElement.style.setProperty("--fs", "100px");
+  const ww = w.scrollWidth || 1;
+  const maxH = (mobile ? Math.min(innerWidth * .62, innerHeight * .2) : innerHeight * .37) / .8;
+  const fs = Math.max(56, Math.min(avail / ww * 100 * .99, maxH));
+  document.documentElement.style.setProperty("--fs", fs.toFixed(1) + "px");
+}
+function scramble(target){
+  if (reduce){ setWord(target, false); return; }
+  const A = "ABCDEFGHIJKLMNOPRSTUVWXYZ", n = target.length, t0 = performance.now();
+  setWord(target, true);
+  const els = [...wordEl.querySelectorAll(".w:not(.out) i")];
+  const iv = setInterval(() => {
+    const t = performance.now() - t0; let done = true;
+    els.forEach((el, i) => { if (t < 380 + i * 90){ done = false; el.textContent = A[(Math.random() * A.length) | 0]; } else el.textContent = target[i] === " " ? " " : target[i]; });
+    if (done || wordText !== target){ clearInterval(iv); }
+  }, 45);
+}
+
+/* ===== Hero ===== */
+function renderHero(){
+  const ps = pickStat(), win = winLabel();
+  if (wordAnim) setWord(displayWord(), true);
+  setText("h-k", pick ? (pick.kind === "word" ? "Rotating into a new word" : "Rotating into") : calibrating ? "Calibrating on live launches" : "Holding · nothing is speeding up");
+  setText("ratio-x", pick && ps ? fmtX(ps.ratio) : "—");
+  setText("ratio-s", pick ? "the hour before" : calibrating ? "needs ~4 min of data" : "waiting for a theme");
+  setText("mini-x", pick && ps ? fmtX(ps.ratio) : "");
+  const pr = prevPick ? stats.find(s => s.key === prevPick.key) : null;
+  $("prev").innerHTML = prevPick ? `<s>${esc(prevPick.word)}</s>&nbsp; ${pr ? fmtX(pr.ratio) + " · " : ""}rotated out ${utc(prevPick.t)}` : "";
+  setText("c-share", ps ? fmtPct(ps.share) : "—");
+  setText("c-share-s", ps ? `vs ${fmtPct(ps.base)} the hour before` : `${nS} launches in ${win}`);
+  setText("c-n", ps ? `${ps.k} of ${nS}` : String(nS));
+  setText("c-n-s", `launches in the last ${win}`);
+  const ew = emerging.find(goodWord);
+  setText("c-new", ew ? ew.w : "—");
+  setText("c-new-s", ew ? `${ew.k} launches · ${ew.devs} creators` : "nothing new is repeating");
+}
+
+/* ===== Why: rank chart ===== */
+const RANK = (() => {
+  const out = [];
+  for (let m = 240; m <= 960; m++){
+    const acc = DAY.map((d, i) => { let s = 0, n = 0; for (let k = -12; k <= 12; k += 3){ s += DAYT[clamp(m + k, 240, 960) - 240].acc[i]; n++; } return s / n; });
+    const ord = acc.map((a, i) => i).sort((a, b) => acc[b] - acc[a]);
+    const r = []; ord.forEach((i, k) => r[i] = k); out.push(r);
+  }
+  return out;
+})();
+const DAY_H0 = 5.5, DAY_H1 = 13.75, CH0 = 5, CH1 = 14, BSTEP = 20;
+const LAG_STEPS = [0, 8.62, 8.95, 11.25, 12.75];
+let whyH = -1, whyStep = -1;
+function renderWhy(h){
+  if (Math.abs(h - whyH) < .002) return; whyH = h;
+  const D = dayAt(h), hh = Math.floor(h), mm = Math.floor((h - hh) * 60);
+  setText("clk", pad(hh) + ":" + pad(mm));
+  $("clk-s").innerHTML = `Trending says <b>${wordForKey(DAY[D.trend].key)}</b> · ROTATE ${D.pick >= 0 ? `says <b class="s">${wordForKey(DAY[D.pick].key)}</b>` : "holds"}`;
+  const step = LAG_STEPS.reduce((a, v, i) => h >= v ? i : a, 0);
+  if (step !== whyStep){ whyStep = step; document.querySelectorAll("#why .story p").forEach((el, i) => el.classList.toggle("on", i === step)); }
+  drawBump(h);
+}
+function bez(x0, y0, x1, y1, x){
+  const xm = (x0 + x1) / 2; let a = 0, b = 1;
+  for (let k = 0; k < 14; k++){ const t = (a + b) / 2, u = 1 - t; const xt = u*u*u*x0 + 3*u*u*t*xm + 3*u*t*t*xm + t*t*t*x1; if (xt < x) a = t; else b = t; }
+  const t = (a + b) / 2, u = 1 - t; return u*u*u*y0 + 3*u*u*t*y0 + 3*u*t*t*y1 + t*t*t*y1;
+}
+function drawBump(h){
+  const cv = $("bump"), r = cv.getBoundingClientRect(); if (!r.width || !r.height) return;
+  const dpr = Math.min(2, devicePixelRatio || 1);
+  if (cv.width !== Math.round(r.width * dpr) || cv.height !== Math.round(r.height * dpr)){ cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.height * dpr); }
+  const x = cv.getContext("2d"); x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, r.width, r.height);
+  const css = getComputedStyle(document.documentElement), mono = css.getPropertyValue("--mono"), sig = css.getPropertyValue("--sig").trim();
+  const W = r.width, H = r.height, mob = W < 620;
+  const L = mob ? 58 : 84, R = mob ? 88 : 150, T = 26, B = mob ? 52 : 58;
+  const X = t => L + (t - CH0) / (CH1 - CH0) * (W - L - R);
+  const n = DAY.length, rowH = (H - T - B) / n, Y = k => T + rowH * (k + .5);
+  x.font = `500 ${mob ? 10 : 11}px ${mono}`; x.textBaseline = "middle";
+  // grid
+  for (let k = 0; k < n; k++){ x.fillStyle = "rgba(11,11,12,.07)"; x.fillRect(L, Math.round(Y(k)), W - L - R, 1); x.fillStyle = "rgba(11,11,12,.45)"; x.textAlign = "left"; x.fillText("#" + (k + 1), 0, Y(k)); }
+  x.textAlign = "center";
+  for (let t = CH0; t <= CH1; t++){ x.fillStyle = "rgba(11,11,12,.07)"; x.fillRect(Math.round(X(t)), T - 6, 1, H - T - B + 6); if (t > CH0 && t < CH1 && (!mob || t % 2 === 0)){ x.fillStyle = "rgba(11,11,12,.5)"; x.fillText(pad(t) + ":00", X(t), 10); } }
+  const D = dayAt(h), px = X(h);
+  // lines, clipped at the playhead
+  x.save(); x.beginPath(); x.rect(0, 0, px, H); x.clip();
+  const roles = DAY.map((d, i) => i === D.pick ? 2 : i === D.trend ? 1 : 0);
+  const order = DAY.map((d, i) => i).sort((a, b) => roles[a] - roles[b]);
+  for (const i of order){
+    x.beginPath();
+    let first = true, pxp = 0, pyp = 0;
+    for (let m = CH0 * 60; m <= CH1 * 60; m += BSTEP){
+      const xx = X(m / 60), yy = Y(RANK[clamp(m, 240, 960) - 240][i]);
+      if (first){ x.moveTo(xx, yy); first = false; } else { const xm = (pxp + xx) / 2; x.bezierCurveTo(xm, pyp, xm, yy, xx, yy); }
+      pxp = xx; pyp = yy;
+    }
+    const you = h >= 8.95 && DAY[i].key === "AI" && !roles[i];
+    x.strokeStyle = roles[i] === 2 ? sig : roles[i] === 1 ? "#0b0b0c" : you ? "#56565b" : "#c3c2bb";
+    x.lineWidth = roles[i] === 2 ? 4 : roles[i] === 1 ? 2.5 : you ? 2 : 1.6; x.lineJoin = "round"; x.lineCap = "round";
+    if (you) x.setLineDash([6, 5]); x.stroke(); x.setLineDash([]);
+  }
+  x.restore();
+  // playhead
+  x.fillStyle = "#0b0b0c"; x.fillRect(Math.round(px), T - 6, 1.5, H - T - B + 6);
+  // dots and labels at the playhead
+  const mA = Math.floor(h * 60 / BSTEP) * BSTEP, mB = mA + BSTEP;
+  for (const i of order){
+    const y0 = Y(RANK[clamp(mA, 240, 960) - 240][i]), y1 = Y(RANK[clamp(mB, 240, 960) - 240][i]);
+    const yy = bez(X(mA / 60), y0, X(mB / 60), y1, px);
+    const youL = h >= 8.95 && DAY[i].key === "AI", col = roles[i] === 2 ? sig : roles[i] === 1 ? "#0b0b0c" : youL ? "#56565b" : "#9d9c96";
+    x.fillStyle = col; x.beginPath(); x.arc(px, yy, roles[i] ? 5 : 3.5, 0, 6.2832); x.fill();
+    x.textAlign = "left"; x.font = `${roles[i] ? 500 : 400} ${mob ? 10 : 12}px ${mono}`;
+    x.fillText(`${wordForKey(DAY[i].key)} ${fmtX(D.acc[i])}${youL ? " · YOU" : ""}`, px + 11, yy);
+  }
+  x.font = `500 ${mob ? 10 : 11}px ${mono}`;
+  // strips: ROTATE and TRENDING
+  const strip = (y, key, label, col) => {
+    x.fillStyle = "rgba(11,11,12,.5)"; x.textAlign = "left"; x.fillText(label, 0, y);
+    let segStart = CH0 * 60, cur = null;
+    const flush = (m1) => {
+      if (cur === null) return;
+      const xa = X(segStart / 60), xb = Math.min(X(m1 / 60), px);
+      if (xb <= xa) return;
+      if (cur < 0){ x.fillStyle = "rgba(11,11,12,.25)"; x.fillRect(xa, y - .5, xb - xa, 1); return; }
+      x.fillStyle = col; x.fillRect(xa, y - 8, xb - xa - 2, 16);
+      const lab = wordForKey(DAY[cur].key);
+      if (xb - xa > x.measureText(lab).width + 14){ x.fillStyle = "#fff"; x.fillText(lab, xa + 7, y + .5); }
+    };
+    for (let m = CH0 * 60; m <= Math.min(h * 60, CH1 * 60) + 1; m += 5){
+      const Dm = dayAt(m / 60), v = key === "pick" ? Dm.pick : Dm.trend;
+      if (v !== cur){ flush(m); segStart = m; cur = v; }
+    }
+    flush(Math.min(h * 60, CH1 * 60) + 5);
+  };
+  strip(H - B + 22, "pick", "ROTATE", sig);
+  strip(H - B + 44, "trend", "TRENDING", "#0b0b0c");
+  // you marker
+  if (h >= 8.95){
+    const yx = X(9);
+    x.setLineDash([3, 4]); x.strokeStyle = "rgba(11,11,12,.6)"; x.lineWidth = 1; x.beginPath(); x.moveTo(yx, T - 4); x.lineTo(yx, H - B + 52); x.stroke(); x.setLineDash([]);
+    const lab = "09:00 YOU OPEN AXIOM", tw = x.measureText(lab).width;
+    x.fillStyle = "#f1f0ec"; x.fillRect(yx - tw / 2 - 6, T - 1, tw + 12, 16);
+    x.fillStyle = "#0b0b0c"; x.textAlign = "center"; x.fillText(lab, yx, T + 7);
+  }
+}
+
+/* ===== How: pipeline ===== */
+function renderPipe(e, flash){
+  if (!e) e = events[events.length - 1]; if (!e) return;
+  pipeEvent = e;
+  $("p-name").textContent = e.name || "—";
+  $("p-sym").textContent = "$" + (e.sym || "") + (mode === "preview" ? " · simulated" : "");
+  const ix = events.lastIndexOf(e), before = events.slice(Math.max(0, ix - 3), ix).reverse();
+  $("p-prev").innerHTML = before.map(b => `<span>${esc(b.name)} · $${esc(b.sym)}</span>`).join("");
+  const raw = []; rawWords(e.name, e.sym).forEach(w => { if (!raw.includes(w)) raw.push(w); });
+  $("p-chips").innerHTML = raw.slice(0, 8).map(w => {
+    if (!keepWord(w)) return `<span class="chip x">${esc(w)}</span>`;
+    const k = themeOfWord(w);
+    return k >= 0 ? `<span class="chip ${isHot(w) ? "h" : "t"}">${esc(w)}<small>${THEMES[k].code}</small></span>` : `<span class="chip">${esc(w)}</span>`;
+  }).join("") || `<span class="empty">No words</span>`;
+  setText("p-wc", `${e.w.length} word${e.w.length === 1 ? "" : "s"} · ${e.th.length} theme${e.th.length === 1 ? "" : "s"}`);
+  renderBars(flash ? e.th : []);
+  renderPipeAge();
+}
+function renderBars(hit){
+  const top = stats.slice().sort((a, b) => b.k - a.k).slice(0, 6), mx = Math.max(1, ...top.map(s => s.k));
+  $("p-bars").innerHTML = top.map(s => `<div class="bar${hit.includes(s.i) ? " f" : ""}"><span>${s.key}</span><i style="width:${(s.k / mx * 100).toFixed(1)}%"></i><b>${s.k}</b></div>`).join("");
+  if (hit.length) setTimeout(() => document.querySelectorAll("#p-bars .bar.f").forEach(b => b.classList.remove("f")), 1100);
+}
+function renderPipeAge(){ if (pipeEvent) setText("p-age", ago(Date.now() - pipeEvent.t) + " ago"); }
+function renderPipePick(){
+  const ps = pickStat();
+  setText("p-win", winLabel());
+  setText("p-pick", pick ? wordForKey(pick.key) : calibrating ? "Scanning" : "Holding");
+  setText("p-pick-x", pick && ps ? `${fmtX(ps.ratio)} the hour before${leader && leaderFor === pick.key && leader.sym ? " · leader $" + leader.sym : ""}` : calibrating ? "needs ~4 min of launches" : "nothing is speeding up");
+  setText("p-st", pick ? statusName(ps ? ps.status : "rising") : calibrating ? "Calibrating" : "Holding");
+}
+
+/* ===== Board ===== */
+function statusName(s){ return { rising: "Rising", warm: "Warming", steady: "Steady", cooling: "Cooling", cal: "Calibrating", new: "New", quiet: "Quiet" }[s] || s; }
+function spark(mins, hot){
+  const mx = Math.max(2, ...mins), pts = mins.map((v, i) => `${(i / 29 * 100).toFixed(1)},${(28 - v / mx * 25).toFixed(1)}`).join(" ");
+  return `<svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="${hot ? "#2443ff" : "#0b0b0c"}" stroke-width="${hot ? 2 : 1.4}" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>`;
+}
+function renderBoard(){
+  const now = Date.now(), win = winLabel();
+  setText("b-heard", `${heard.toLocaleString("en-US")} launches heard`);
+  setText("b-win", calibrating && mode === "live" ? `Calibrating · ${ago(now - liveSince)} of live data` : `Window ${win} vs the hour before`);
+  setText("bh-n", win);
+  const rows = stats.slice().sort((a, b) => (a.status === "quiet") - (b.status === "quiet") || b.score - a.score || b.k - a.k);
+  $("rows").innerHTML = rows.map((s, k) => {
+    const pk = pick && pick.kind === "theme" && pick.key === s.key, q = s.status === "quiet";
+    const cls = calibrating || q ? "" : (s.status === "rising" || pk) ? "up" : s.status === "cooling" ? "dn" : "";
+    return `<div class="row${pk ? " pk" : ""}${q ? " dim" : ""}" role="row"><span class="rk">${pad(k + 1)}</span><span class="th">${esc(s.name)}<small>${s.key}</small></span><span class="rx ${cls}">${calibrating || q ? "—" : fmtX(s.ratio)}</span><span>${spark(s.mins, pk)}</span><span>${s.k}</span><span>${fmtPct(s.share)}</span><span>${fmtPct(s.base)}</span><span class="stt ${s.status}">${statusName(s.status)}</span></div>`;
+  }).join("");
+  const em = emerging.filter(goodWord);
+  $("emerge").innerHTML = em.length ? em.slice(0, 6).map((e, i) => `<div class="em${pick && pick.kind === "word" && pick.w === e.w ? " top" : ""}"><b>${esc(e.w)}</b><span>${e.k} in ${win}<br>${e.devs} creator${e.devs === 1 ? "" : "s"}${e.isNew ? " · new" : ""}</span></div>`).join("") : `<div class="empty">${calibrating ? "Listening for new words…" : "No new word is repeating yet."}</div>`;
+  $("rlog").innerHTML = rotations.length ? rotations.slice(0, 7).map(r => `<li><span>${utc(r.t)}</span><span>${r.from ? esc(r.from) + " → " : r.to ? "Locked onto " : ""}${r.to ? `<b class="s">${esc(r.to)}</b> ${fmtX(r.ratio)}` : "<b>released, holding</b>"}</span></li>`).join("") : `<li><span></span><span>${calibrating ? "Waiting for enough launches." : "No rotations yet."}</span></li>`;
+  $("disclaim").textContent = (mode === "preview" ? "Preview: the launch stream couldn’t be reached, so these launches are simulated. " : "") + "ROTATE reads coin names and tickers, not images, charts or X. A theme without a keyword in its name stays invisible until it gets one. Many launches in a theme can also mean a crowded trade.";
+}
+function renderLeader(){
+  const L = leader && pick && leaderFor === pick.key ? leader : null;
+  setText("pc-k", pick ? "Leader in " + wordForKey(pick.key) : "Leader");
+  if (!L){
+    setText("pc-name", pick ? "Looking…" : calibrating ? "Calibrating" : "No pick"); setText("pc-m", ""); setText("pc-src", "");
+    $("pc-meta").innerHTML = ""; $("pc-links").innerHTML = "";
+    setText("c-lead", "—"); setText("c-lead-s", pick ? "looking up market caps" : "no pick yet");
+  } else {
+    $("pc-name").innerHTML = `${esc(L.name) || "—"}<small>$${esc(L.sym)}</small>`;
+    setText("pc-m", L.mcap ? fmtUsd(L.mcap) : "");
+    setText("pc-src", L.src === "dex" ? "DexScreener" : L.src === "sim" ? "Simulated" : "Price data unavailable");
+    const meta = [short(L.mint)];
+    if (L.src === "dex"){ meta.push("market cap"); if (L.vol) meta.push(fmtUsd(L.vol) + " vol 1h"); }
+    if (L.src === "latest") meta.push("latest launch in theme");
+    if (L.src === "sim") meta.push("preview coin, not on-chain");
+    $("pc-meta").innerHTML = meta.map(m => `<span>${esc(m)}</span>`).join("");
+    $("pc-links").innerHTML = L.src === "sim" ? "" : `<a class="btn sm" href="https://pump.fun/coin/${encodeURIComponent(L.mint)}" target="_blank" rel="noopener">pump.fun ↗</a>` + (L.url ? `<a class="btn sm" href="${esc(L.url)}" target="_blank" rel="noopener">DexScreener ↗</a>` : "");
+    setText("c-lead", "$" + (L.sym || "—"));
+    setText("c-lead-s", L.mcap ? fmtUsd(L.mcap) + " · " + (L.src === "sim" ? "simulated" : "DexScreener") : L.src === "latest" ? "latest in theme" : "");
+  }
+  renderPipePick();
+}
+function renderAll(){ renderHero(); renderBoard(); renderLeader(); renderPipePick(); }
+
+/* ===== Report and card ===== */
+function reportText(){
+  const ps = pickStat(), lines = [`ROTATE · ${utc(Date.now())} UTC${mode === "preview" ? " · preview, simulated data" : ""}`];
+  if (pick && ps) lines.push(`Rotating into ${wordForKey(pick.key)} · ${fmtX(ps.ratio)} the hour before`);
+  else lines.push(calibrating ? "Calibrating on live launches" : "Holding · nothing is speeding up");
+  if (prevPick) lines.push(`Rotated out of ${prevPick.word}`);
+  const rows = stats.filter(s => s.status !== "quiet").sort((a, b) => b.score - a.score);
+  const up = rows.slice(0, 3).map(s => `${s.ratio >= 1 ? "▲" : "▼"} ${wordForKey(s.key)} ${fmtX(s.ratio)}`), dn = rows[rows.length - 1];
+  lines.push(up.join("  ") + (dn && dn.ratio < .9 ? `  ▼ ${wordForKey(dn.key)} ${fmtX(dn.ratio)}` : ""));
+  const ew = emerging.find(goodWord); if (ew) lines.push(`New word: “${ew.w}” · ${ew.k} launches in ${winLabel()}`);
+  if (leader && leader.sym && mode === "live" && pick && leaderFor === pick.key) lines.push(`Leader: $${leader.sym}`);
+  lines.push("", "The meta rotates. $ROTATE" + (CONFIG.site ? " · " + CONFIG.site : ""));
+  return lines.join("\n");
+}
+function drawIcon(x, ox, oy, h, fill, face){
+  const k = h / 540; x.save(); x.translate(ox - 230 * k, oy - 270 * k); x.scale(k, k);
+  x.fillStyle = fill; x.beginPath(); if (x.roundRect) x.roundRect(250, 372, 500, 418, 66); else x.rect(250, 372, 500, 418); x.fill();
+  const cx = 676, cy = 400, R = 118, a0 = 196 * Math.PI / 180, a1 = 304 * Math.PI / 180;
+  x.strokeStyle = fill; x.lineWidth = 58; x.lineCap = "butt"; x.beginPath(); x.arc(cx, cy, R, a0, a1); x.stroke();
+  const ex = cx + R * Math.cos(a1), ey = cy + R * Math.sin(a1), tx = -Math.sin(a1), ty = Math.cos(a1), nx = Math.cos(a1), ny = Math.sin(a1);
+  x.beginPath(); x.moveTo(ex + nx * 58, ey + ny * 58); x.lineTo(ex + tx * 78, ey + ty * 78); x.lineTo(ex - nx * 58, ey - ny * 58); x.closePath(); x.lineJoin = "round"; x.lineWidth = 10; x.fill(); x.stroke();
+  x.strokeStyle = face; x.lineWidth = 30; x.lineCap = "round";
+  [-52, 52].forEach(d => { x.beginPath(); x.moveTo(514 + d, 490); x.lineTo(514 + d, 556); x.stroke(); });
+  x.beginPath(); x.moveTo(414, 628); x.quadraticCurveTo(500, 702, 586, 628); x.stroke();
+  x.restore();
+}
+function fitFont(x, text, weight, family, maxW, maxPx){ let fs = maxPx; x.font = `${weight} ${fs}px ${family}`; const w = x.measureText(text).width; if (w > maxW) fs = Math.floor(fs * maxW / w); x.font = `${weight} ${fs}px ${family}`; return fs; }
+function drawCard(W, H, og){
+  const cv = document.createElement("canvas"); cv.width = W; cv.height = H;
+  const x = cv.getContext("2d"), css = getComputedStyle(document.documentElement);
+  const cond = css.getPropertyValue("--cond"), mono = css.getPropertyValue("--mono"), sans = css.getPropertyValue("--sans"), sig = css.getPropertyValue("--sig").trim();
+  x.fillStyle = "#f1f0ec"; x.fillRect(0, 0, W, H);
+  x.strokeStyle = "rgba(11,11,12,.05)"; x.lineWidth = 1; for (let c = 1; c < 12; c++){ const cx = Math.round(56 + (W - 112) * c / 12) + .5; x.beginPath(); x.moveTo(cx, 0); x.lineTo(cx, H); x.stroke(); }
+  const ps = pickStat(), band = 76;
+  x.textBaseline = "alphabetic";
+  drawIcon(x, 54, 30, 40, sig, "#ffffff");
+  x.fillStyle = "#0b0b0c"; x.font = `800 36px ${cond}`; x.fillText("ROTATE", 104, 64);
+  x.font = `500 16px ${mono}`; x.textAlign = "right"; x.fillStyle = "#56565b";
+  x.fillText(og ? "THEME RADAR FOR PUMP.FUN LAUNCHES" : `ROTATION REPORT · ${utc(Date.now())} UTC`, W - 56, 62);
+  if (!og && mode === "preview"){ x.fillStyle = sig; x.fillText("PREVIEW · SIMULATED DATA", W - 56, 86); }
+  x.textAlign = "left";
+  x.fillStyle = "#0b0b0c"; x.fillRect(56, 104, W - 112, 2);
+  if (og){
+    const word = "NEXT META";
+    x.fillStyle = "#56565b"; x.font = `500 18px ${mono}`; x.fillText("BUYS THE", 56, 150);
+    const fs = fitFont(x, word, 850, cond, W - 112, 330);
+    x.fillStyle = "#0b0b0c"; x.fillText(word, 52, 150 + fs * .78);
+    x.fillStyle = sig; x.font = `500 30px ${sans}`; x.fillText("not the last one.", 56, H - band - 34);
+  } else {
+    const word = pick ? wordForKey(pick.key) : calibrating ? "SCANNING" : "HOLDING";
+    x.fillStyle = "#56565b"; x.font = `500 18px ${mono}`;
+    x.fillText(prevPick ? `ROTATED OUT OF ${prevPick.word}  →  ROTATING INTO` : "ROTATING INTO", 56, 146);
+    const fs = fitFont(x, word, 850, cond, W - 112 - 300, 300);
+    x.fillStyle = pick ? "#0b0b0c" : "#8d8d92"; x.fillText(word, 52, 160 + fs * .78);
+    if (pick && ps){
+      x.textAlign = "right"; x.fillStyle = sig; x.font = `850 150px ${cond}`; x.fillText(fmtX(ps.ratio), W - 56, 160 + fs * .78);
+      x.font = `500 16px ${mono}`; x.fillStyle = "#56565b"; x.fillText("THE HOUR BEFORE", W - 56, 190 + fs * .78); x.textAlign = "left";
+    }
+    const st = [];
+    if (pick && ps) st.push([`${fmtPct(ps.share)} OF LAUNCHES`, `vs ${fmtPct(ps.base)} the hour before`], [`${ps.k} OF ${nS}`, `launches in the last ${winLabel()}`]);
+    if (leader && pick && leaderFor === pick.key && leader.sym) st.push([`LEADER $${String(leader.sym).toUpperCase()}`, leader.mcap ? fmtUsd(leader.mcap) + (leader.src === "sim" ? " · simulated" : " mcap") : "latest in theme"]);
+    st.forEach(([a1, b1], k) => { const sx = 56 + k * 370, sy = H - band - 96; x.fillStyle = "#0b0b0c"; x.fillRect(sx, sy - 22, 340, 1.5); x.font = `500 19px ${mono}`; x.fillText(a1, sx, sy + 6); x.font = `400 15px ${mono}`; x.fillStyle = "#56565b"; x.fillText(b1, sx, sy + 34); });
+  }
+  // band
+  x.fillStyle = "#0b0b0c"; x.fillRect(0, H - band, W, band);
+  x.font = `500 19px ${mono}`; x.textBaseline = "middle";
+  let bx = 56;
+  const items = og ? [["CATS", 1], ["AGENT", 0], ["WAR", 1], ["NEKO", 1], ["GLORP", 2], ["DRONE", 1], ["KITTY", 1], ["MEOW", 1]] : stats.filter(s => s.status !== "quiet").sort((a, b) => b.score - a.score).slice(0, 5).map(s => [`${s.ratio >= 1 ? "▲" : "▼"} ${wordForKey(s.key)} ${fmtX(s.ratio)}`, pick && pick.key === s.key ? 2 : 1]);
+  for (const [t, k] of items){ x.fillStyle = k === 2 ? sig : k === 1 ? "#e9e8e3" : "#77777d"; x.fillText(t, bx, H - band / 2); bx += x.measureText(t).width + 18; x.fillStyle = "#3d3d42"; x.fillText("/", bx, H - band / 2); bx += 26; if (bx > W - 200) break; }
+  x.textAlign = "right"; x.fillStyle = "#e9e8e3"; x.fillText(CONFIG.site || "$ROTATE", W - 56, H - band / 2);
+  return cv;
+}
+function copyText(text, btn){
+  const orig = btn.dataset.label || (btn.dataset.label = btn.textContent);
+  const done = () => { btn.textContent = "Copied"; btn.classList.add("copied"); setTimeout(() => { btn.textContent = orig; btn.classList.remove("copied"); }, 1500); };
+  const fail = () => { btn.textContent = "Copy blocked"; setTimeout(() => btn.textContent = orig, 1800); };
+  try { navigator.clipboard.writeText(text).then(done, fail); } catch (err){ fail(); }
+}
+if (window.self !== window.top) $("card-dl").hidden = true;
+$("card-btn").addEventListener("click", async () => { try { await document.fonts.ready; } catch (err){} const url = drawCard(1200, 675, false).toDataURL("image/png"); $("card-img").src = url; $("card-dl").href = url; $("modal").hidden = false; $("modal-close").focus(); });
+$("modal-close").addEventListener("click", () => { $("modal").hidden = true; $("card-btn").focus(); });
+$("modal").addEventListener("click", e => { if (e.target === $("modal")) $("modal").hidden = true; });
+addEventListener("keydown", e => { if (e.key === "Escape") $("modal").hidden = true; });
+$("card-copy").addEventListener("click", e => copyText(reportText(), e.currentTarget));
+$("report-btn").addEventListener("click", e => copyText(reportText(), e.currentTarget));
+window.__og = () => drawCard(1200, 630, true).toDataURL("image/png");
+
+/* ===== Config wiring ===== */
+const TOKEN_ADDR = CONFIG.ca && isAddr(CONFIG.ca) ? CONFIG.ca : null;
+(function wire(){
+  const pumpUrl = TOKEN_ADDR ? `https://pump.fun/coin/${TOKEN_ADDR}` : "https://pump.fun";
+  ["buy-nav", "buy-hero", "buy-token", "buy-foot"].forEach(id => $(id).href = pumpUrl);
+  ["ca-hero", "ca-token", "ca-foot"].forEach(id => {
+    const box = $(id), v = box.querySelector(".v"), b = box.querySelector("button");
+    if (TOKEN_ADDR){ v.textContent = TOKEN_ADDR; v.classList.add("has"); b.hidden = false; b.addEventListener("click", () => copyText(TOKEN_ADDR, b)); }
+  });
+  if (CONFIG.engineWallet && isAddr(CONFIG.engineWallet)) $("wallet").innerHTML = `<a href="https://solscan.io/account/${CONFIG.engineWallet}" target="_blank" rel="noopener">${short(CONFIG.engineWallet)} ↗</a>`;
+  const add = (wrap, href, label, cls) => { const a = document.createElement("a"); a.className = cls; a.href = href; a.target = "_blank"; a.rel = "noopener"; a.textContent = label; $(wrap).appendChild(a); };
+  if (CONFIG.dexscreener) add("token-links", CONFIG.dexscreener, "DexScreener ↗", "btn");
+  if (CONFIG.x){ add("token-links", CONFIG.x, "X ↗", "btn"); add("foot-links", CONFIG.x, "Follow on X ↗", ""); }
+  const total = CONFIG.fees.reduce((a, f) => a + f.cents, 0) || 1, sw = ["#2443ff", "#f1f0ec", "#6b6b70", "#3d3d42"];
+  $("stack").innerHTML = CONFIG.fees.map((f, i) => `<i style="flex:${f.cents};background:${sw[i % sw.length]}"></i>`).join("");
+  $("fees").innerHTML = CONFIG.fees.map((f, i) => `<div class="fee"><b style="color:${i ? "#f1f0ec" : "#2443ff"}">${Math.round(f.cents / total * 100)}¢</b><span><strong>${esc(f.label)}</strong><span>${esc(f.note)}</span></span></div>`).join("");
+})();
+
+/* ===== Header, reveal ===== */
+const hdr = $("hdr");
+addEventListener("scroll", () => hdr.classList.toggle("scrolled", scrollY > 10), { passive: true });
+if ("IntersectionObserver" in window){
+  new IntersectionObserver(es => es.forEach(e => hdr.classList.toggle("mini-on", !e.isIntersecting && e.boundingClientRect.top < 0)), { threshold: 0 }).observe($("word-row"));
+  const ro = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); ro.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll("[data-rv]").forEach(el => ro.observe(el));
+} else document.querySelectorAll("[data-rv]").forEach(el => el.classList.add("in"));
+function pinProgress(el){ const r = el.getBoundingClientRect(); return clamp(-r.top / Math.max(1, r.height - (innerHeight - 62)), 0, 1); }
+
+/* ===== Loop and ticks ===== */
+let last = performance.now();
+function frame(now){
+  requestAnimationFrame(frame);
+  if (document.hidden){ last = now; return; }
+  const dt = Math.min(.05, (now - last) / 1000); last = now;
+  tkStep(dt);
+  const r = $("why").getBoundingClientRect();
+  if (r.top < innerHeight && r.bottom > 0) renderWhy(lerp(DAY_H0, DAY_H1, pinProgress($("why"))));
+}
+function tick(){
+  const now = Date.now();
+  compute(now);
+  const k = pick ? pick.key : null;
+  if (k !== lastPickKey){ if (lastPickKey) prevPick = { key: lastPickKey, word: wordForKey(lastPickKey), t: now }; lastPickKey = k; }
+  renderAll();
+  if (pick && (leaderFor !== pick.key || now - leaderAt > (mode === "live" ? 20000 : 8000))) refreshLeader();
+}
+setInterval(tick, 2000);
+setInterval(() => { setText("h-clock", `${utcS(Date.now())} UTC · ${rate ? Math.round(rate) : "—"} launches/min`); renderPipeAge(); }, 1000);
+setInterval(tkFill, 400);
+setInterval(saveLive, 20000);
+addEventListener("pagehide", saveLive);
+addEventListener("resize", () => { fitWord(); whyH = -1; });
+
+/* ===== Boot ===== */
+setMode("preview");
+startPreview();
+tkHist.length = 0; events.slice(-70).forEach(e => tkHist.push(e));
+compute(Date.now()); lastPickKey = pick ? pick.key : null;
+renderAll(); renderPipe(events[events.length - 1], false);
+scramble(displayWord()); wordAnim = true;
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { fitWord(); whyH = -1; });
+tkFill();
+requestAnimationFrame(frame);
+renderWhy(DAY_H0);
+connect();
+</script>
+
+</body>
+</html>
