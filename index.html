@@ -408,7 +408,7 @@ footer{padding-top:clamp(100px,13vw,180px);overflow:hidden;scroll-margin-top:62p
         </div>
         <div class="h-cta">
           <div class="row"><a class="btn solid" id="buy-hero" href="https://pump.fun" target="_blank" rel="noopener">Buy $ROTATE ↗</a><a class="btn" href="#board">Open the board</a></div>
-          <div class="ca" id="ca-hero"><span class="k">CA</span><span class="v has">6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump</span><button type="button">Copy</button></div>
+          <div class="ca" id="ca-hero"><span class="k">CA</span><span class="v has">JBg56n3uCbvzb7NRULRqDF3TPcKGKYqu1gYc1WT5gyp3</span><button type="button">Copy</button></div>
         </div>
       </div>
     </div>
@@ -507,9 +507,9 @@ footer{padding-top:clamp(100px,13vw,180px);overflow:hidden;scroll-margin-top:62p
       </div>
       <div class="tok-grid">
         <div class="tok-l">
-          <div class="ca" id="ca-token"><span class="k">CA</span><span class="v has">6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump</span><button type="button">Copy</button></div>
+          <div class="ca" id="ca-token"><span class="k">CA</span><span class="v has">JBg56n3uCbvzb7NRULRqDF3TPcKGKYqu1gYc1WT5gyp3</span><button type="button">Copy</button></div>
           <div class="wallet"><span>Engine wallet</span><span id="wallet">Posted here after launch</span></div>
-          <div style="display:flex;flex-wrap:wrap;gap:10px" id="token-links"><a class="btn sig" id="buy-token" href="https://pump.fun" target="_blank" rel="noopener">Buy on pump.fun ↗</a></div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px" id="token-links"><a class="btn sig" id="buy-token" href="https://pump.fun" target="_blank" rel="noopener">Buy $ROTATE ↗</a></div>
         </div>
         <div>
           <div class="fee-h"><b>$1.00</b><span>of creator fees</span></div>
@@ -549,7 +549,7 @@ footer{padding-top:clamp(100px,13vw,180px);overflow:hidden;scroll-margin-top:62p
     <div class="f-cta">
       <a class="btn solid" id="buy-foot" href="https://pump.fun" target="_blank" rel="noopener">Buy $ROTATE ↗</a>
       <a class="btn" href="#board">Open the board</a>
-      <div class="ca" id="ca-foot"><span class="k">CA</span><span class="v has">6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump</span><button type="button">Copy</button></div>
+      <div class="ca" id="ca-foot"><span class="k">CA</span><span class="v has">JBg56n3uCbvzb7NRULRqDF3TPcKGKYqu1gYc1WT5gyp3</span><button type="button">Copy</button></div>
     </div>
     <div class="ghost" id="ghost" aria-hidden="true">—</div>
     <div class="foot"><span>ROTATE · buys the next meta, not the last one</span><span id="foot-links"></span><span>Not financial advice. Simulated data is always labeled Preview.</span></div>
@@ -567,8 +567,9 @@ footer{padding-top:clamp(100px,13vw,180px);overflow:hidden;scroll-margin-top:62p
 <script>
 /* ===== Edit these at launch ===== */
 const CONFIG = {
-  ca: "6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump",   // $ROTATE mint
+  ca: "JBg56n3uCbvzb7NRULRqDF3TPcKGKYqu1gYc1WT5gyp3",   // $ROTATE mint
   x: "",              // e.g. "https://x.com/yourhandle"
+  buy: "",            // optional buy link; empty = pump.fun for ...pump mints, otherwise Jupiter
   dexscreener: "",    // optional
   site: "",           // e.g. "rotate.fun", printed on rotation cards
   engineWallet: "",   // the engine's public wallet, once it is live
@@ -1290,8 +1291,8 @@ window.__og = () => drawCard(1200, 630, true).toDataURL("image/png");
 /* ===== Config wiring ===== */
 const TOKEN_ADDR = CONFIG.ca && isAddr(CONFIG.ca) ? CONFIG.ca : null;
 (function wire(){
-  const pumpUrl = TOKEN_ADDR ? `https://pump.fun/coin/${TOKEN_ADDR}` : "https://pump.fun";
-  ["buy-nav", "buy-hero", "buy-token", "buy-foot"].forEach(id => $(id).href = pumpUrl);
+  const buyUrl = CONFIG.buy || (!TOKEN_ADDR ? "https://pump.fun" : TOKEN_ADDR.endsWith("pump") ? `https://pump.fun/coin/${TOKEN_ADDR}` : `https://jup.ag/swap/SOL-${TOKEN_ADDR}`);
+  ["buy-nav", "buy-hero", "buy-token", "buy-foot"].forEach(id => $(id).href = buyUrl);
   ["ca-hero", "ca-token", "ca-foot"].forEach(id => {
     const box = $(id), v = box.querySelector(".v"), b = box.querySelector("button");
     if (TOKEN_ADDR){ v.textContent = TOKEN_ADDR; v.classList.add("has"); b.hidden = false; b.addEventListener("click", () => copyText(TOKEN_ADDR, b)); }

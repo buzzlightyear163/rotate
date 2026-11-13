@@ -27,7 +27,7 @@ At the top of the script in `index.html`:
 
 ```js
 const CONFIG = {
-  ca: "6iAJRoPQUAhdqcCpL7GySswGn7idMqcj2S2AcH34pump",   // the $ROTATE mint address
+  ca: "JBg56n3uCbvzb7NRULRqDF3TPcKGKYqu1gYc1WT5gyp3",   // the $ROTATE mint address
   x: "",              // e.g. "https://x.com/yourhandle"
   dexscreener: "",    // optional
   site: "",           // e.g. "rotate.fun", printed on rotation cards
